@@ -1,0 +1,248 @@
+%Format: pdfLaTeX
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{lettrine}
+
+\usepackage[T1]{fontenc}
+%%% Palatino fonts...
+\usepackage{palatino}
+%%% ... or EC fonts
+%\usepackage{type1ec}
+
+\usepackage{german}
+
+\usepackage{graphicx,color}
+
+\newcommand{\MF}{{\small\sffamily\scshape metafont}}
+\newcommand{\MP}{{\small\sffamily\scshape metapost}}
+
+\setlength{\textheight}{680pt}
+\setlength{\textwidth}{412pt}
+\setlength{\oddsidemargin}{20pt}
+\setlength{\topmargin}{-35pt}
+
+\setlength{\parindent}{0pt}
+%\addtolength{\parskip}{0.5\baseineskip}
+\sloppy
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+\large\bfseries Einige Beispiele zur Anwendung des lettrine-Pakets
+\end{center}
+
+\vspace{\baselineskip}
+\textit{Einfachste Verwendung (2 Zeilen) :}\\
+\verb+\lettrine{E}{in} erstes Beispiel...+
+
+\lettrine{E}{in} erstes Beispiel zeigt das Standardverhalten von lettrine.
+Es wird eine Initiale \"uber zwei Zeilen produziert, gefolgt vom Text zwischen
+den geschweiften Klammern, der als Kapit\"alchen gesetzt wird. Der weitere
+Text umfliesst die Initiale.
+
+\vspace{\baselineskip}
+\textit{Lettrine auf einer Zeile (option {\ttfamily\upshape lines=1}) :}\\
+\verb+\lettrine[lines=1]{E}{in} zweites Beispiel...+
+
+\lettrine[lines=1]{E}{in} zweites Beispiel zeigt, wie eine Initiale auf
+einer einzelnen Zeile aussieht. Auch hier ist der geklammerte Text in
+Kapit\"alchen gesetzt.
+
+\vspace{\baselineskip}
+\textit{Initiale \"uber drei Zeilen (option {\ttfamily\upshape lines=3}) :}\\
+\verb+\lettrine[lines=3]{E}{in} drittes Beispiel...+
+
+\lettrine[lines=3]{E}{in} drittes Beispiel in dem die Initiale \"uber drei
+Zeilen gesetzt wird. Beachten Sie die Einr\"uckung der zweiten und dritten
+Zeile. Diese kann mit dem Parameter \verb+nindent= + beeinflusst werden. Die
+Einr\"uckung der ersten Zeile wird hingegen mit dem Parameter \verb+indent= +
+beeinflusst.
+
+\vspace{\baselineskip}
+\textit{Initiale vollst\"andig im Randbereich} :\\
+\verb+\lettrine[lhang=1, nindent=0pt, lines=3]{V}{erschieben}+
+
+\lettrine[lhang=1, nindent=0pt, lines=3]{V}{erschieben} wir nun im vierten
+Beispiel die Initiale in den Randbereich. Dieses Verhalten wird durch den
+Parameter \verb+lhang= + gesteuert.
+
+\vspace{\baselineskip}
+\textit{Initiale, vergr\"ossert und teilweise im Randbereich} :\\
+\verb+\lettrine[lines=3, lhang=0.33, loversize=0.25]{A}{uch}+
+
+\lettrine[lines=3, lhang=0.33, loversize=0.25]{A}{uch}
+die Vergr\"osserung der Initiale ist m\"oglich. Die Vergr\"osserung l\"auft
+\"uber die Variable \verb+loversize= + . Sie m\"ussen das Ergebnis nicht
+unbedingt sch\"on finden. Es sieht nach meiner Meinung besser aus, wie das
+vollst\"andige Verschieben in den Randbereich.
+
+\vspace{\baselineskip}
+\textit{Setzen wir nun eine %franz\"osisches
+         Anf\"uhrungszeichen davor} :\\
+\verb+\lettrine[ante=\frqq]{M}{it} dem Parameter ...+
+
+\lettrine[ante=\frqq]{M}{it} dem Parameter \verb+ante= + kann auch ein
+beliebiger Text vor die Initiale gesetzt werden. In der Praxis d\"urften
+wohl nur Anf\"uhrungszeichen daf\"ur in Frage kommen.
+
+\vspace{\baselineskip}
+\verb+\def\lglqq{\raisebox{-\baselineskip}{\glqq}}+\\
+\verb+\lettrine[ante=\lglqq]{M}{it} dem Parameter ...+
+\def\lglqq{\raisebox{-\baselineskip}{\glqq}}
+
+\lettrine[ante=\lglqq]{M}{it} dem Parameter \verb+ante= + kann auch ein
+beliebiger Text vor die Initiale gesetzt werden. In der Praxis d\"urften
+wohl nur Anf\"uhrungszeichen daf\"ur in Frage kommen.
+
+\newpage
+\vspace{\baselineskip}
+\textit{Wir verkleinern die Initiale nun um 10\% und heben sie
+um 10\% wegen des {\glqq}Q{\grqq}}
+\verb+\lettrine[lines=4, loversize=-.1, lraise=.1]{Q}{ualit"at}+
+
+\lettrine[lines=4, loversize=-.1, lraise=.1]{Q}{ualit"at} hat ihren
+Preis.  Und wenn es nur die Zeit ist, um zu lernen wie Sie solche Spielereien
+anstellen k\"onnen. Bei den Ergebnissen lohnt sich aber die M\"uhe. Welche
+Parameter diesmal was beeinflussen, lasse ich Sie nun selbst herausfinden.
+Wie Sie sehen, ragt der Unterstrich des {\glqq}Q{\grqq} nicht in den Text
+hinein.
+
+\vspace{\baselineskip}
+\textit{Nochmal das {\glqq}Q{\grqq} ohne Anpassungen}
+\verb+\lettrine[lines=4]{Q}{ualit"at}+
+
+\lettrine[lines=4]{Q}{ualit\"at} hat ihren Preis.  Und wenn es nur die Zeit
+ist, um zu lernen wie Sie solche Spielereien anstellen k\"onnen. Bei den
+Ergebnissen lohnt sich aber die M\"uhe. Welche Parameter diesmal was
+beeinflussen, lasse ich Sie nun selbst herausfinden. Wie Sie sehen, ragt nun
+der Unterstrich des {\glqq}Q{\grqq} in den Text hinein.
+
+\vspace{\baselineskip}
+\textit{Verwendung der Option {\ttfamily\upshape slope}}, damit der Text
+der Neigung des {\glqq}A{\grqq} folgt:\\
+\verb+\lettrine[lines=4, slope=0.6em, findent=-1em,+\\
+\verb+          nindent=0.6em]{\A}{uch}...+
+
+\lettrine[lines=4, slope=0.6em, findent=-1em, nindent=0.6em]{A}{uch} eine
+Neigung kann angegeben werden. Damit werden die L\"ocher neben geneigten
+Buchstaben nicht so gross. Selbst eine negative Neigung ist m\"oglich, damit
+bietet auch das {\glqq}V{\grqq} keine Schwierigkeiten mehr. Wie das beim
+{\glqq}V{\grqq} aussieht, sehen wir uns beim n\"achsten Beispiel an.
+
+\vspace{\baselineskip}
+\textit{Verwendung der Option {\ttfamily\upshape slope}, damit der Text
+der Neigung des {\ttfamily\upshape V} folgt; Das {\ttfamily\upshape V} ragt 
+zus\"atzlich halb in den Rand hinein 
+(Option {\ttfamily\upshape lhang=0.5} :})\\
+\verb+\lettrine[lines=4, slope=-0.5em, lhang=0.5, nindent=0pt]+\\
+\verb+         {V}{iel} ist...+
+
+\lettrine[lines=4, slope=-0.5em, lhang=0.5, nindent=0pt]{V}{iel} ist hier
+nicht anders. Nur die negative Neigung und das Hereinragen in den Rand. Ob
+Ihnen das Ergebnis gef\"allt m\"ussen Sie selber entscheiden.  Sie sehen aber,
+das das {\glqq}V{\grqq} wirklich keine Schwierigkeiten bietet. Der Unterschied
+zum vorhergehenden Beispiel ist nicht besonders gross.
+
+\vspace{\baselineskip}
+\textit{\"Andern wir nun die Schriftfamilie f\"ur die Initiale
+(hier AvantGarde bold italique):}\\
+\verb+\renewcommand{\LettrineFontHook}{\fontfamily{pag}%+\\
+\verb+                   \fontseries{bx}\fontshape{it}}+\\
+\verb+\lettrine[findent=.3em]{A}{uch} ein Wechsel...+
+
+{% (Aendern des lokalen fonts)
+\renewcommand{\LettrineFontHook}{\fontfamily{pag}\fontseries{bx}\fontshape{it}}
+
+\lettrine[findent=.3em]{A}{uch} ein Wechsel der Schriftfamilie ist problemlos
+m\"oglich. Hier verwenden wir Avantgarde und setzen mit der Option
+\verb+findent= + den horizontalen Abstand des einger\"uckten Texts.
+\par}
+
+\vspace{\baselineskip}
+\textit{\"Andern wir nun die Schriftfamilie und die Farbe f\"ur die Initiale
+(hier yfrak in Grau) :}\\
+\verb+\renewcommand{\LettrineFontHook}{\fontfamily{yfrak}\color[gray]{0.5}}+\\
+\verb+\lettrine[loversize=0.1]{A}{uch}...+
+
+{% (Aendern des lokalen fonts)
+\renewcommand{\LettrineFontHook}{\fontfamily{yfrak}\color[gray]{0.5}}
+
+\lettrine[loversize=0.1]{A}{uch} ein Wechsel der
+Schriftfamilie ist problemlos m\"oglich. Hier verwenden wir yfrak,
+etwas vergr\"ossert mit der Option \verb+loversize= +, und wir schreiben
+die Initiale in Grau mit \verb+\color[gray]{0.5}+.
+\par}
+
+\newpage
+\begin{center}
+\large\bfseries Verwendung eines PostScript-Bildes als Initiale
+\end{center}
+
+\vspace{\baselineskip} Wenn die erw\"unschte Initiale nicht als Zeichen eines
+Fonts, sondern als Bild im Postscript-Format vorliegt, kann ebenfalls
+\verb+\lettrine+ verwendet werden. Es gen\"ugt, 
+die Boolsche Variable \texttt{image=true} zu ben\"utzen; z.B. so:
+
+\vspace{.5\baselineskip}
+{% Gruppierung, um die  LOKALEN Definitionen zu sch\"utzen
+\fontfamily{yfrak}\selectfont\Large
+\renewcommand{\LettrineTextFont}{\relax}
+\renewcommand{\LettrineFontHook}{\color{red}}
+\lettrine[image=true, lines=3, lhang=.2, loversize=.25, %
+          lraise=-.05, findent=0.1em, nindent=0em]
+{W}{er} reitet so sp"at durch Nacht und Wind?\\
+Es ist der Vater mit seinem Kind;\\
+Er hat den Knaben wohl in dem Arm,\\
+Er fa{\ss}t ihn sicher, er h"alt ihn warm.
+\par}
+
+\vspace{\baselineskip} Und hier der zum Beispiel geh\"orende \LaTeX{}--Code:
+Das erste Argument von \verb+\lettrine+ war \verb+W+. Die Option \texttt{image=true}
+l\"adt dann die Datei \verb+W.eps+. Das Suffix \verb+.eps+ kann -- dank des
+Pakets \verb+graphicx.sty+ -- weggelassen werden. \verb+\LettrineFontHook+
+enth\"alt den Befehl (\verb+\color{red}+), um in Rot zu schreiben.
+
+\begin{verbatim}
+\fontfamily{yfrak}\selectfont\Large
+\renewcommand{\LettrineTextFont}{\relax}
+\renewcommand{\LettrineFontHook}{\color{red}}
+\lettrine[image=true, lines=3, lhang=.2, loversize=.25, %
+          lraise=-.05, findent=0.1em, nindent=0em]
+{W}{er} reitet so sp"at durch Nacht und Wind?
+Es ist der Vater mit seinem Kind;
+Er hat den Knaben wohl in dem Arm,
+Er fa{\ss}t ihn sicher, er h"alt ihn warm.
+\end{verbatim}
+
+Zur Darstellung dieses Beispiels m\"ussen folgende Pakete installiert sein:
+\begin{itemize}
+\item \verb+graphicx.sty+ und \verb+color.sty+
+\item die Schriften \verb+yfrak.pfb+ im type\,1-Format
+   von Yannis~\textsc{Haralambous}.
+\item Das Paket \verb+blacklettert1+ von Thorsten~\textsc{Bronger}
+\end{itemize}
+
+Die gothische Initiale \glqq W\grqq{} in diesem Beispiel k\"onnen Sie mit dem
+Programm \MP{} aus den \MF{}-Sourcen und \verb+yinitW.mf+ erzeugen.
+
+Falls Sie eine PDF-Datei erzeugen wollen, m\"ussen Sie die Datei \verb+W.eps+
+in eine PDF-Datei \verb+W.pdf+ umwandeln (mit Hilfe von \verb+epstopdf+).
+
+\verb+\lettrine+ unterst\"utzt die Verwendung der Formate:
+\texttt{pdf}, \texttt{png}, \texttt{jpeg} oder \MP{} als Initiale.
+
+\vfill
+\begin{flushright}
+  Deutsche Version Georg \textsc{Wagner}\\
+  \texttt{g.wagner@datacomm.ch}\\
+  Mai 2003
+\end{flushright}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

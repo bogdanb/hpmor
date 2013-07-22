@@ -1,0 +1,762 @@
+%
+% \CheckSum{448}
+%
+% \iffalse meta-comment
+%
+% Copyright (C) 1999-2013 Daniel Flipo.
+%
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License either version 1.3 of this
+% license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2003/12/01 or later.
+%
+% This file has the LPPL maintenance status "maintained".
+%
+%   NO PERMISSION is granted to produce or to distribute a
+%   modified version of this file under its original name.
+%
+% \fi
+%
+% \iffalse
+%
+%<*sty>
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesFile{lettrine.sty}
+%</sty>
+%<*dtx>
+\ProvidesFile{lettrine.dtx}
+%</dtx>
+%<*!cfg>
+             [2013/03/14 v1.64 (Daniel Flipo)]
+%</!cfg>
+%
+%    Lettrine package for LaTeX version 2e
+%
+%    Copyright (C) 1999-2012 by Daniel Flipo
+%
+%    Please report errors to: daniel.flipo at free.fr
+%
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\usepackage{lettrine}
+\GetFileInfo{lettrine.dtx}
+\RecordChanges
+%\OnlyDescription
+%
+\newenvironment{key}[2]{\expandafter\macro\expandafter{%
+   \csname KV@#1@#2\endcsname}}{\endmacro}
+%
+\newcommand*\file[1]{\texttt{#1}}
+%
+\newcommand{\at}{@}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.3\baselineskip}
+\begin{document}
+\begin{center}
+  \textbf{\Large Typesetting `lettrines' in \LaTeXe{} documents}
+  \\[.2\baselineskip]^^A\]
+  {\large Daniel \textsc{Flipo}}\\
+  \texttt{daniel.flipo\at free.fr}
+\end{center}
+\DocInput{lettrine.dtx}
+\end{document}
+%</driver>
+%
+%\fi
+%
+%  \section{Introduction}
+%
+%    The file \file{\filename}\footnote{The file described in this
+%    section has version number \fileversion\ and was last revised on
+%    \filedate.}, provides a command |\lettrine| which requires two
+%    mandatory arguments, and an optional one.
+%
+%    Adding |\usepackage{lettrine}| in the preamble of a document
+%    defines the command |\lettrine|, the simplest use of which is
+%    |\lettrine{|\emph{$<$letter$>$}|}{|\emph{$<$text$>$}|}|.
+%    It produces a dropped capital \emph{$<$letter$>$} (2 lines high),
+%    followed by \emph{$<$text$>$} typeset in small caps, and the rest
+%    of the paragraph is wrapped around the dropped capital.
+%
+%    Various parameters are provided to control the size and layout
+%    of the dropped capital and match the requirements described
+%    in the books
+%    \begin{itemize}
+%    \item ``Lexique des r\`egles typographiques en usage \`a
+%           l'Imprimerie nationale'' troisi\`eme \'edition (1994),
+%           ISBN-2-11-081075-0,
+%    \item ``Mise en page et impression'' Yves~\textsc{Perrousseaux},
+%           ISBN-2-911220-01-3.
+%    \end{itemize}
+%    The parameters can be set using David Carlisle's
+%    \texttt{keyval.sty} syntax:
+%    \begin{itemize}
+%      \item |lines=|\emph{$<$integer$>$} sets how many lines the
+%            dropped capital will occupy (default=2);
+%      \item |lhang=|\emph{$<$decimal$>$} ($0\le|lhang|\le1$) sets
+%            how much of the dropped capital's width should hang into
+%            the margin (default=0);
+%      \item |loversize=|\emph{$<$decimal$>$} ($-1<|loversize|\le1$)
+%            enlarges the dropped capital's height: with
+%            |loversize=0.1| its height is enlarged by 10\% so that
+%            it raises above the top paragraph's line (default=0);
+%      \item |lraise=|\emph{$<$decimal$>$} does not affect the dropped
+%            capital's height, but moves it up (if positive),
+%            down (if negative); useful with capitals like |J| or |Q|
+%            which have a positive depth, (default=0);
+%      \item |findent=|\emph{$<$dimen$>$} (positive or negative)
+%            controls the horizontal gap between the dropped capital
+%            and the indented block of text (default=0pt);
+%      \item |nindent=|\emph{$<$dimen$>$} shifts all indented lines,
+%            starting from the second one, horizontally by
+%            \emph{$<$dimen$>$} (this shift is relative to the first
+%            line, default=0.5em);
+%      \item |slope=|\emph{$<$dimen$>$} can be used with dropped
+%            capitals like |A| or |V| to add \emph{$<$dimen$>$}
+%            (positive or  negative) to the indentation of each line
+%            starting from the third one (no effect if |lines=2|,
+%            default=0pt);
+%      \item |ante=|\emph{$<$text$>$} can be used to typeset
+%            \emph{$<$text$>$} \emph{before} the dropped capital
+%            (typical use is for French guillemets starting
+%            the paragraph).
+%
+% \changes{lettrine-1.6}{2004/05/22}{Add a flag to switch to
+%    images in eps or pdf format.  Suggested by Bill Jetzer.}
+%
+%      \item |image=|\emph{$<$true$>$} (new to version 1.6) will force
+%            |\lettrine| to replace the letter normally used as
+%            dropped capital by an image in eps format (latex) or
+%            in pdf, jpg, etc.\ format (pdflatex); this needs the
+%            |graphicx| package to be loaded in the preamble of course.
+%            |\lettrine[image=true]{A}{n exemple}| or just
+%            |\lettrine[image]{A}{n exemple}| will load |A.eps|
+%            or |A.pdf| instead of letter~A.  This was suggested
+%            by Bill Jetzer.  Redefining \verb+\LettrineFont+ as
+%            \verb+\LettrineFontEPS+ still works for compatibility
+%            but is deprecated.
+%    \end{itemize}
+%
+%    Example: |\lettrine[lines=4, lraise=0.1, nindent=0em, |%
+%                        |slope=-.5em]%|\\
+%    \mbox{}\phantom{\tt Example: lettrine}%
+%                        |{V}{oici} un exemple |\dots
+%
+%    Coloured lettrines are possible in conjonction with package
+%    \file{color}, examples: |\lettrine{\textcolor{red}{A}}{n} example|
+%    \quad or\\ |\lettrine{\textcolor[gray]{0.5}{A}}{nother} one| \\
+%    see package \file{color} for the syntax of colour commands.
+%    Another possibility to colour lettrines globally is described
+%    below, see |\LettrineFontHook|.
+%
+%    Once \file{lettrine.sty} will be installed (run \texttt{latex}
+%    on \file{lettrine.ins} to extract it), compile and print
+%    \file{demo.tex} to see the possible usage of these parameters.
+%
+%    The default settings can be customized either in a config file
+%    \file{lettrine.cfg} (for a global usage), or on a per document
+%    basis, in the preamble of each document.  The following list
+%    shows the syntax to set them and their default values:
+%    \begin{itemize}
+%      \item |\setcounter{DefaultLines}{2}|,
+%      \item |\renewcommand{\DefaultLoversize}{0}|,
+%      \item |\renewcommand{\DefaultLraise}{0}|,
+%      \item |\renewcommand{\DefaultLhang}{0}|,
+%      \item |\LettrineImagefalse|,
+%      \item |\setlength{\DefaultFindent}{0pt}|,
+%      \item |\setlength{\DefaultNindent}{0.5em}|,
+%      \item |\setlength{\DefaultSlope}{0pt}|.
+%    \end{itemize}
+%
+%    Instead of giving optional parameters to the |\lettrine| command,
+%    it is possible, from version 1.5, to set them on a per character
+%    basis in a second config file (suggested by Pascal Kockaert):
+%    |\renewcommand{\DefaultOptionsFile}{|\textit{filename}|}|
+%    in the preamble (or anywhere in the document) will
+%    force each call to |\lettrine| to read the file \textit{filename}.
+%    See examples of such config files in the subdirectory
+%    \file{contrib}.
+%
+%    The dimensional parameters |findent|, |nindent| and |slope|,
+%    can be set in \textit{filename} relative to |\LettrineWidth|
+%    if needed.
+%    |\LettrineWidth| should be used \emph{only} in the config file
+%    \textit{filename}, its value is non-null only if \textit{filename}
+%    is read!
+%    The settings read from this file will be overridden by the
+%    optional arguments eventually given to |\lettrine|.
+%
+%    |\LettrineTextFont| sets the font used for the second argument
+%    of |\lettrine|, its default definition is
+%    |\newcommand{\LettrineTextFont}{\scshape}| (second argument in
+%    small caps, this can be changed using |\renewcommand|).
+%
+%    |\LettrineFont| sets the font used for the dropped capital,
+%    usually the current font in a (large) size, computed
+%    automatically from the number of lines it will fill:
+%    the font size is computed so that, a \emph{standard} dropped
+%    capital (say X, not \`A) when sitting on its baseline, gets
+%    its top aligned with the top of the following text (provided
+%    $|loversize|=0$ and $|lines|\ge 2$).  When $|lines|=1$,
+%    size is computed as if |lines| was~2.\\
+%    A hook |\LettrineFontHook| is provided to change the font
+%    used for the dropped capital, syntax follows \LaTeX{}'s
+%    low-level font interface (see \LaTeX{} Companion, p.187--192),
+%    the |\selectfont| command is issued by |\LettrineFont|:\\
+%    |\renewcommand{\LettrineFontHook}{\fontfamily{ppl}|\ignorespaces
+%    |\fontseries{bx}}%|\\
+%    |                                 \fontshape{sl}}|,\\
+%    selects Palatino bold expanded slanted for the dropped capital.\\
+%    |\LettrineFontHook| can also be used to change the colour of
+%    all lettrines in a (part of) document:
+%    |\renewcommand{\LettrineFontHook}{\color[gray]{0.5}}| \\
+%    will colour the lettrines following this command in grey.
+%
+% \changes{lettrine-1.3}{2002/08/23}{Correct the documentation to
+%    mention the cm-super fonts and the type1ec package by
+%    Vladimir Volovich.}
+%
+%    \vspace{\baselineskip}
+%    \textbf{Important notice:}
+%    the sizing works fine with \emph{fully scalable} fonts (like the
+%    standard PostScript fonts), but might not work well with CM/EC
+%    fonts which have two limitations: only a limited number of sizes
+%    is available by default (precise adjustments are impossible),
+%    and the largest size (25pt or 35pt) is often too small.
+%    The CM fonts are now available in PostScript type1 format for
+%    free (courtesy of BlueSky/Y\&Y), to make them fully scalable,
+%    it is mandatory to add |\usepackage{type1cm}| in the preamble
+%    of your document.
+%    The EC fonts are also available in type1 format for free
+%    (thanks to Vladimir Volovich, they are called cm-super), and
+%    adding |\usepackage{type1ec}|%
+%    \footnote{This package, available on CTAN, was first released
+%    on 2002/07/30.}
+%    in the preamble will make them fully scalable too.
+%    So, if you want \file{lettrine.sty} to work properly with CM
+%    or EC fonts, you will need \emph{PostScript versions} of these
+%    fonts \emph{and} one of the packages |type1cm.sty| or
+%    |type1ec.sty|.
+%
+%    The LM fonts are a good replacement for both CM and EC fonts they
+%    are fully scalable, so you should use them instead of CM or EC
+%    fonts.  |\usepackage{lmodern}| is the command to switch them on
+%    (add |\usepackage[T1]{fontenc}| when composing in one of the
+%    western languages other than English in order to get proper
+%    hyphenation).
+%
+%    You can also consider using one of the standard PostScript fonts
+%    (Palatino, Times, Utopia\dots), or any OpenType font, they are
+%    fully scalable too!
+%
+%    \vspace{\baselineskip}
+%    \textbf{Known problems:}
+%    \begin{itemize}
+%    \item nothing is done to prevent page-breaking in a paragraph
+%      starting with a dropped capital; when it happens to hang
+%      into the footer, page-breaking has to be done manually;
+%    \item |\lettrine| works within `quote' `quotation', `abstract'
+%      environments but does not work within `center' environments
+%      (except with option \texttt{[lines=1]});
+%    \item |\lettrine| does not work within lists;
+%    \item if a \emph{list} has to be included in a paragraph starting
+%      with  a `lettrine', it is necessary to add the command
+%      |\parshape=0| just after the end of the list (starting a new
+%      paragraph  just before or just after the list works too).
+%      Remember that `quote', `quotation', `abstract' environments
+%      are implemented as \emph{lists} in \LaTeX{}.
+%    \end{itemize}
+%
+% \StopEventually{\PrintChanges}
+%
+%    \pagebreak[3]
+%  \section{\TeX{}nical details}
+%
+%    This package only runs with \LaTeXe{} and requires keyval.sty
+% \iffalse
+%<*sty>
+% \fi
+%
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\RequirePackage{keyval}
+%    \end{macrocode}
+%
+%    Default initializations: define the necessary counters, lengths,
+%    and commands to hold the default settings and set these default
+%    settings.  They can be overwritten in file |lettrine.cfg|.
+%
+% \changes{lettrine-1.2}{2002/03/13}{\cs{newlength} changed to
+%    \cs{newdimen}, to correct a bug with seminar.cls (pointed out
+%    by Peter M\"unster).}
+%
+% \changes{lettrine-1.6}{2004/05/22}{Added newif \cs{ifLettrineImage}.}
+%
+%    \begin{macrocode}
+\newcounter{DefaultLines}
+\setcounter{DefaultLines}{2}
+\newcommand*{\DefaultOptionsFile}{\relax}
+\newcommand*{\DefaultLoversize}{0}
+\newcommand*{\DefaultLraise}{0}
+\newcommand*{\DefaultLhang}{0}
+\newdimen\DefaultFindent
+\setlength{\DefaultFindent}{\z@}
+\newdimen\DefaultNindent
+\setlength{\DefaultNindent}{0.5em}
+\newdimen\DefaultSlope
+\setlength{\DefaultSlope}{\z@}
+\newif\ifLettrineImage
+%    \end{macrocode}
+%
+%    Then let's define the necessary internal counters, lengths,
+%    and commands.
+%
+% \changes{lettrine-1.6}{2004/05/22}{Added newif \cs{ifL@image}.}
+%
+%    \begin{macrocode}
+\newsavebox{\L@lbox}
+\newsavebox{\L@tbox}
+\newcounter{L@lines}
+\newdimen\L@Pindent
+\newdimen\L@Findent
+\newdimen\L@Nindent
+\newdimen\L@lraise
+\newdimen\L@first
+\newdimen\L@next
+\newdimen\L@slope
+\newdimen\L@height
+\newcommand*{\L@file}{}
+\newcommand*{\L@hang}{}
+\newcommand*{\L@oversize}{}
+\newcommand*{\L@raise}{}
+\newcommand*{\L@ante}{}
+\newif\ifL@image
+%    \end{macrocode}
+%
+%    Provide commands for the fonts used to typeset the two
+%    mandatory arguments of |\lettrine|.
+%
+% \begin{macro}{\LettrineTextFont}
+%    In French, small caps usually follow the dropped capital.
+%    \begin{macrocode}
+\newcommand*{\LettrineTextFont}{\scshape}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\LettrineFontHook}
+% \begin{macro}{\LettrineFont}
+%    The default size for the dropped capital is computed so that the
+%    top of it is exactly aligned with the top of the following text;
+%    an extra height (positive or negative) may be added with
+%    |Defaultloversize| or an optional argument |loversize=|.
+%    If |lines=1|, the default size for the dropped capital is
+%    computed as if |lines=2|.
+%    |\Lettrine@height| computes the wished height for the dropped
+%    capital and stores it into |\L@height|.
+%    As |\baselineskip| might be a rubber length, we convert it into
+%    a `dimen' using |\@tempdima|.
+%    |\LettrineFontHook| enables to select another font for the
+%    dropped capital.  Its default definition is empty (the current
+%    text font is used).
+%
+% \changes{lettrine-0.9}{1998/02/23}{Size of the dropped capital
+%    changed when `lines' value is 1 (was \cs{Huge}).}
+% \changes{lettrine-0.9}{1998/03/13}{\cs{Lettrine@height} added.}
+% \changes{lettrine-0.9}{1998/03/13}{\cs{LettrineFontHook} added.}
+% \changes{lettrine-1.2}{2002/03/13}{\cs{baselineskip} may be a
+%    rubber length, we convert it to a dimen.}
+%
+% \changes{lettrine-1.63}{2012/07/20}{Added command
+%    \cs{LettrineTestString} which defaults to
+%    `ABCDEFGHIJKLMNOQPRSTUVWXYZ'.  In previous versions height
+%    computations were based on letter `X' which might not exist
+%    in some (rare) fonts.  Pointed out by Rapha\"el Pinson.}
+%
+%    \begin{macrocode}
+\def\Lettrine@height{%
+   \@tempdima=\baselineskip
+   \setlength{\L@height}{\theL@lines\@tempdima}%
+   \ifnum\theL@lines>1
+     \addtolength{\L@height}{-\@tempdima}%
+   \fi
+   \sbox{\L@tbox}{\LettrineTextFont x}%
+   \addtolength{\L@height}{\ht\L@tbox}%
+   \addtolength{\L@height}{\L@oversize\L@height}}
+\newcommand*{\LettrineFontHook}{}
+\newcommand*{\LettrineTestString}{ABCDEFGHIJKLMNOQPRSTUVWXYZ}
+\newcommand*{\LettrineFont}{%
+   \Lettrine@height
+%    \end{macrocode}
+%    |\L@height| now holds the exact height required for the dropped
+%    capital, setting |\fontsize| to that height would not give the
+%    expected result (capital too small), some computing has to be
+%    done: we measure the maximal capitals' height and compute a
+%    scaling factor (always $\ge1$).  All capitals are expected to
+%    have the same height, in case this assumption would be wrong for
+%    some special font, |\LettrineTestString| can be customised to any
+%    non empty subset of capitals.
+%    \begin{macrocode}
+   \sbox{\L@tbox}{\LettrineFontHook\fontsize{\L@height}{\L@height}%
+                  \selectfont \LettrineTestString}%
+%    \end{macrocode}
+%    Arithmetic calculations convert the dimensions into integers
+%    (in sp) and compute a (4 decimal accurate) scaling factor.
+%    \begin{macrocode}
+   \@tempcntb=\ht\L@tbox
+   \@tempcnta=\L@height
+   \multiply\@tempcnta by 100
+   \divide\@tempcntb by 100
+   \divide\@tempcnta by \@tempcntb
+   \advance\@tempcnta by -9999
+   \ifnum\@tempcnta>0
+     \def\@tempa{1.\the\@tempcnta}%
+   \else
+     \def\@tempa{1}%
+   \fi
+   \LettrineFontHook
+   \fontsize{\@tempa\L@height}{\@tempa\L@height}%
+   \selectfont
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \changes{lettrine-0.9}{1998/03/13}{\cs{LettrineFontEPS} added.}
+%
+% \begin{macro}{\LettrineFontEPS}
+%    The following definition is for use with dropped capitals defined
+%    as images: EPS, PDF, JPG, PNG files (see examples in demo.tex).
+%    Its use requires the |graphicx| package to be loaded in the
+%    preamble with |\usepackage{graphicx}|.  The required size is
+%    computed just as in the standard case, |\includegraphics|
+%    prints the EPS file at this size.
+%
+% \changes{lettrine-1.6}{2004/05/22}{Added \cs{LettrineFontHook}
+%    to \cs{LettrineFontEPS}.  This is needed for color options.}
+%
+%    \begin{macrocode}
+\newcommand*{\LettrineFontEPS}{%
+   \Lettrine@height\LettrineFontHook
+   \includegraphics[height=\L@height]}
+%    \end{macrocode}
+% \end{macro}
+%
+%    Set up keyval initializations.
+%
+%    \begin{macrocode}
+\define@key{L}{lines}{\setcounter{L@lines}{#1}}
+\define@key{L}{lhang}{\renewcommand*{\L@hang}{#1}}
+\define@key{L}{loversize}{\renewcommand*{\L@oversize}{#1}}
+\define@key{L}{lraise}{\renewcommand*{\L@raise}{#1}}
+\define@key{L}{ante}{\renewcommand*{\L@ante}{#1}}
+\define@key{L}{findent}{\setlength{\L@Findent}{#1}}
+\define@key{L}{nindent}{\setlength{\L@Nindent}{#1}}
+\define@key{L}{slope}{\setlength{\L@slope}{#1}}
+\define@key{L}{image}[true]{\csname L@image#1\endcsname}
+%    \end{macrocode}
+%
+% \changes{lettrine-1.5}{2003/08/18}{\cs{LettrineOptionsFor} and
+%    \cs{LettrineWidth} added.}
+%
+% \begin{macro}{\LettrineOptionsFor}
+%    This command is to be used in an optional config file (the name
+%    of which is found in |\DefaultOptionsFile|) to set the values
+%    of parameters on a per character basis, for instance:\\
+%    |\LettrineOptionsFor{A}{slope=0.6em, findent=-1em, nindent=0.6em}|\\
+%    creates an internal command (|\l@A-keys| in this example),
+%    which expands to the options given as second argument of
+%    |\LettrineOptionsFor| for letter `A'.
+%
+%    \begin{macrocode}
+\newcommand*{\LettrineOptionsFor}[2]{\@namedef{l@#1-keys}{#2}}
+\newdimen\LettrineWidth
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\lettrine}
+%    Now let's define |\lettrine|.
+%
+%    \begin{macrocode}
+\def\lettrine{\@ifnextchar[\@lettrine{\@lettrine[]}}
+\def\@lettrine[#1]#2#3{%
+%    \end{macrocode}
+%
+% \changes{lettrine-0.81}{1997/02/26}{\cs{DefaultLoversize} added.}
+%
+%    First reset the parameters to their default values:
+%    \begin{macrocode}
+  \setcounter{L@lines}{\theDefaultLines}%
+  \renewcommand*{\L@hang}{\DefaultLhang}%
+  \renewcommand*{\L@oversize}{\DefaultLoversize}%
+  \renewcommand*{\L@raise}{\DefaultLraise}%
+  \renewcommand*{\L@ante}{}%
+  \setlength{\L@Findent}{\DefaultFindent}%
+  \setlength{\L@Nindent}{\DefaultNindent}%
+  \setlength{\L@slope}{\DefaultSlope}%
+  \ifLettrineImage\L@imagetrue\else\L@imagefalse\fi
+%    \end{macrocode}
+% \changes{lettrine-1.5}{2003/08/18}{Added reading of an optional
+%   config file \cs{DefaultOptionsFile}.}
+%    then try to read an optional file (its name is given by
+%    |\DefaultOptionsFile|), do this inside a group, and define a
+%    global  command |\l@LOKeys| which will expand to the list of
+%    options given by |\LettrineOptionsFor| for the current lettrine
+%    (defined by |#2|)\dots
+%    \begin{macrocode}
+  \if\DefaultOptionsFile\relax
+  \else
+    \begingroup
+    \InputIfFileExists{\DefaultOptionsFile}%
+      {}%
+      {\PackageWarning{lettrine.sty}%
+         {File \DefaultOptionsFile\space not found}%
+      }%
+%    \end{macrocode}
+%    Gobble the colour commands, just keep the letter argument.
+%    \begin{macrocode}
+    \def\color##1##{\l@color{##1}}%
+    \let\l@color\@gobbletwo
+    \def\textcolor##1##{\l@textcolor{##1}}%
+    \def\l@textcolor##1##2##3{##3}%
+%    \end{macrocode}
+%    Save the list of options relevant to the letter in |#2|
+%    in |\l@LOKeys| (list is empty eventually).
+%    \begin{macrocode}
+    \expandafter\ifx\csname l@#2-keys\endcsname\relax
+                  \gdef\l@LOKeys{}%
+                \else
+                  \xdef\l@LOKeys{\csname l@#2-keys\endcsname}%
+                \fi
+    \endgroup
+%    \end{macrocode}
+%    Now apply these options (the following code executes
+%    |\setkeys{L}{\l@LOKeys}}| where |\l@LOKeys| is expanded,
+%    see \file{keyval.sty}).
+%    \begin{macrocode}
+    \def\KV@prefix{KV@L@}%
+    \let\@tempc\relax
+    \expandafter\KV@do\l@LOKeys,\relax,
+%    \end{macrocode}
+%    As some parameters' values |findent|, |nindent| and |slope|
+%    ---which do not influence the lettrine size--- may be given
+%    relative to |\LettrineWidth|, this has to be done again after
+%    measuring the lettrine for |\LettrineWidth| to be set properly.
+%    \begin{macrocode}
+    \sbox{\L@lbox}{\LettrineFont #2}%
+    \settowidth{\LettrineWidth}{\usebox{\L@lbox}}%
+    \def\KV@prefix{KV@L@}%
+    \let\@tempc\relax
+    \expandafter\KV@do\l@LOKeys,\relax,
+  \fi
+%    \end{macrocode}
+%    Finally read the optional argument: the |keyval| package will
+%    set the parameters mentioned calling |\define@key| (see above).
+%    \begin{macrocode}
+  \setkeys{L}{#1}%
+%    \end{macrocode}
+%    Save the two mandatory arguments of |\lettrine| into
+%    two boxes, this will help measuring their sizes.
+%    Depending on the boolean |image|, |\LettrineFont| or
+%    |\LettrineFontEPS| is used.
+%    \begin{macrocode}
+  \ifL@image
+     \sbox{\L@lbox}{\LettrineFontEPS{#2}}%
+  \else
+     \sbox{\L@lbox}{\LettrineFont #2}%
+  \fi
+%    \end{macrocode}
+%
+% \changes{lettrine-1.6}{2004/05/22}{Add braces around \#3 to allow
+%    commands taking an argument (such as \cs{MakeLowercase}) in
+%    \cs{LettrineTextFont}.  Suggested by Philipp Lehman.}
+%
+%    \begin{macrocode}
+  \sbox{\L@tbox}{\LettrineTextFont{#3}}%
+%    \end{macrocode}
+%    Start a new paragraph, skipping the necessary amount of space
+%    if the dropped capital sticks out the top of paragraph.
+%    We use |\L@first| to compute the amount of space to be skipped.
+%    Again, as |\baselineskip| might be a rubber length, we convert
+%    it into a `dimen' using |\@tempdima|.
+%
+% \changes{lettrine-0.9}{1998/02/23}{Calculations of length
+%    \cs{L@first} changed.  Do not `vskip' small lengths ($<$0.2pt),
+%    they are just rounding errors.}
+%
+% \changes{lettrine-1.2}{2002/03/13}{\cs{baselineskip} may be a
+%    rubber length, we convert it to a dimen.}
+%
+%    \begin{macrocode}
+   \@tempdima=\baselineskip
+   \ifnum\theL@lines=1
+     \setlength{\L@first}{\ht\L@lbox}%
+     \addtolength{\L@first}{-\ht\L@tbox}%
+     \setlength{\L@lraise}{\z@}%
+   \else
+     \setlength{\L@first}{-\theL@lines\@tempdima}%
+     \addtolength{\L@first}{\@tempdima}%
+     \sbox{\@tempboxa}{\LettrineTextFont x}%
+     \addtolength{\L@first}{-\ht\@tempboxa}%
+%    \end{macrocode}
+%    Now, |\L@first| holds (the opposite of) the raw height of a
+%    standard dropped capital (like~'X'), excluding the effect of
+%    |\L@oversize|.  This is the basis for |\L@raise|
+%    (and |\L@oversize|, see |\LettrineFont|).
+%    \begin{macrocode}
+     \setlength{\L@lraise}{-\L@raise\L@first}%
+     \addtolength{\L@first}{\L@lraise}%
+     \addtolength{\L@first}{\ht\L@lbox}%
+     \addtolength{\L@lraise}{-\theL@lines\@tempdima}%
+     \addtolength{\L@lraise}{\@tempdima}%
+   \fi
+   \par
+   \ifdim\L@first>0.2\p@\vskip\L@first\fi
+%    \end{macrocode}
+%    Again, we (mis)use the length |\L@first| to compute the width of
+%    the text eventually coming before the dropped capital.  It is
+%    reset later on to hold the first line's length.
+%    \begin{macrocode}
+  \setlength{\L@Pindent}{\wd\L@lbox}%
+  \addtolength{\L@Pindent}{-\L@hang\wd\L@lbox}%
+  \settowidth{\L@first}{\L@ante}%
+  \addtolength{\L@Pindent}{\L@first}%
+  \addtolength{\L@Pindent}{\L@Findent}%
+  \setlength{\L@first}{\linewidth}%
+  \addtolength{\L@first}{-\L@Pindent}%
+%    \end{macrocode}
+%    Now let's compute |\L@Nindent| and |\L@next| for the next lines.
+%    \begin{macrocode}
+  \addtolength{\L@Nindent}{\L@Pindent}%
+  \setlength{\L@next}{\linewidth}%
+  \addtolength{\L@next}{-\L@Nindent}%
+%    \end{macrocode}
+%
+% \changes{lettrine-1.1}{1999/08/18}{Add \cs{rightmargin} to
+%    \cs{L@Pindent} for \cs{Lettrine} to work properly in quote,
+%    quotation, abstract environments\dots{} but do not change
+%    \cs{linewidth} which is set by these environments.}
+%
+% \changes{lettrine-1.4}{2002/10/26}{\cs{lettrine} still didn't
+%    work properly in quote, quotation, abstract environments,
+%    pointed out by Matthias C.\ Schmidt.  \cs{rightmargin} was added
+%    too early to \cs{L@Nindent}, thus making \cs{\L@next} too short
+%    by \cs{rightmargin}.}
+%
+%    This is for quotation, quote, abstract\dots{} environments:
+%    |\linewidth| is set by these environments, all we have to do
+%    is to shift our text left by |\rightmargin| (amount of space
+%    locally added to |\leftmargin| in these environments).
+%    \begin{macrocode}
+  \addtolength{\L@Pindent}{\rightmargin}%
+  \addtolength{\L@Nindent}{\rightmargin}%
+%    \end{macrocode}
+%    Now, set up the shape of the new paragraph (designed by
+%    |\parshape|).
+%    \begin{macrocode}
+  \addtocounter{L@lines}{1}%
+  \def\L@parshape{\c@L@lines \the\L@Pindent \the\L@first}%
+  \@tempcnta=\tw@
+  \@whilenum \@tempcnta<\c@L@lines\do{%
+     \edef\L@parshape{\L@parshape \the\L@Nindent \the\L@next}%
+     \addtolength{\L@Nindent}{\L@slope}%
+     \addtolength{\L@next}{-\L@slope}%
+     \advance\@tempcnta\@ne}%
+  \edef\L@parshape{\L@parshape \rightmargin \the\linewidth}%
+  \noindent
+  \parshape=\L@parshape\relax
+%    \end{macrocode}
+% \changes{lettrine-1.64}{2013/03/14}{Remove \$ around \cs{smash}
+%     and add \cs{relax}.  Bug pointed out by David Monniaux.
+%     Correction by Enrico Gregorio.}
+%    Write the dropped capital into the left margin, and wrap
+%    the rest of paragraph around it.
+%    \begin{macrocode}
+  \smash{\llap{\mbox{\L@ante}\raisebox{\L@lraise}{\usebox{\L@lbox}}%
+          \hskip \the\L@Findent}}%
+  \usebox{\L@tbox}}
+%    \end{macrocode}
+% \end{macro}
+%
+%    This ends the definition of |\lettrine|.\\
+%    Load a local config file if present in \LaTeX{}'s search path.
+%    \begin{macrocode}
+\InputIfFileExists{lettrine.cfg}
+   {\typeout{Loading lettrine.cfg}}
+   {\typeout{lettrine.cfg not found, using default values}}
+%    \end{macrocode}
+% \iffalse
+%</sty>
+% \fi
+%
+%  \section{Fichier de configuration}
+%
+% \iffalse
+%<*cfg>
+% \fi
+%    \begin{macrocode}
+%% lettrine.cfg: configuration file for lettrine.sty
+%%
+%% If you want to customize lettrine, please *do not* hack into the
+%% code, copy this file to the directory where lettrine.sty lies
+%% and customize it as you like.
+%%
+%% Uncomment these lines and change the parameters' values to fit
+%% your needs (see lettrine.dtx).
+%%
+%%\setcounter{DefaultLines}{2}
+%%
+%% These are *decimal* numbers:
+%%\renewcommand{\DefaultLoversize}{0}
+%%\renewcommand{\DefaultLraise}{0}
+%%\renewcommand{\DefaultLhang}{0}
+%%
+%% These are *lengths* (don't forget the unit):
+%%\setlength{\DefaultFindent}{0pt}
+%%\setlength{\DefaultNindent}{0.5em}
+%%\setlength{\DefaultSlope}{0mm}
+%%
+%% This is a *flag* (value=true/false):
+%%\LettrineImagefalse
+%%
+%% In case you want to set parameters for some letters
+%% in file `optfile.cfl'
+%%\renewcommand{\DefaultOptionsFile}{optfile.cfl}
+%    \end{macrocode}
+% \iffalse
+%</cfg>
+% \fi
+%
+% \iffalse
+%<*dtx>
+% \fi
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+% \iffalse
+%</dtx>
+% \fi
+%
+% \Finale
+\endinput
+
+%%% Local Variables:
+%%% fill-column: 70
+%%% coding: us-ascii
+%%% End:

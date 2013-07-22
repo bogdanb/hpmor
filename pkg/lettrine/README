@@ -1,0 +1,33 @@
+                            Lettrine bundle
+
+This bundle contains a package that I maintain to typeset dropped
+capitals in a LaTeXe document.
+
+It is subject to the LaTeX Project Public License. 
+See http://www.ctan.org/tex-archive/help/Catalogue/licenses.lppl.html 
+for the details of that license.
+
+Run (pdf)latex on lettrine.dtx to get the documentation (lettrine.dvi
+or lettrine.pdf), then on lettrine.ins to strip the comments and create
+lettrine.sty.
+
+If you wish, you can customize lettrine.cfg according to your needs.
+
+Have a look at one of the PDF files, demo.pdf (in French), or
+demo-de.pdf (in German) in the doc directory, to see how 
+different layouts for dropped capitals can be achieved.
+You can also play with the source files demo.tex or demo-de.tex.
+Have a look at lettrine.pdf in the doc directory, if you are interested
+in the complete documentation and code.
+
+Installation: this bundle is included in most TeX distributions, but
+if you need to install it by yourself, a TDS compliant zip archive is
+provided (lettrine.tds.zip).  Just download that file , and unpack it
+in your TDS directory (~/texmf for Unix-like systems).  That's all! you
+have got everything in place including documentation and sources.
+On MikTeX/Windows, please use the very efficient management of updates
+provided by MIkTeX.
+
+--
+Daniel Flipo, <daniel.flipo@free.fr>
+April, 23rd, 2008.

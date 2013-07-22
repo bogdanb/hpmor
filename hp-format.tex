@@ -1,0 +1,194 @@
+% This file includes all the generic formatting for HPatMoR. This mostly entails configuring
+% the memoir package, though “configuring” on occasion means “completely messing it up”.
+
+\RequirePackage{ucntn} % Provides \NUMTONAME, for all-caps output
+\RequirePackage{hp-hacks}
+\RequirePackage{calc}
+
+%
+% Set-up page sizes
+%
+\setstocksize{240mm}{165mm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settypeblocksize{\topskip  + 34\baselineskip}{352pt}{*}
+\setlrmargins{*}{*}{1}
+\setulmargins{*}{*}{1}
+\setheadfoot{\topskip +  \baselineskip}{2\baselineskip}
+\checkandfixthelayout[fixed]
+
+\fixdvipslayout % fix for xelatex
+
+%
+% Fonts used generally (specific fonts used only once or twice are not here).
+%
+\setmainfont[
+  Numbers=OldStyle
+, Style=Swash
+, Extension=.ttf
+, UprightFont=*-Regular
+, ItalicFont=*-Italic
+, BoldFont=*-Medium
+, BoldItalicFont=*-Medium-Italic
+]{GaramondNo8}
+\newfontface\hp[ExternalLocation]{Lumos}
+
+%~ \def—\emph{cucu}
+
+%
+% Page numbering/footer
+%
+\def\pageInFooter{\Star\ \hp\makebox[4em][c]{\textls[30]{\thepage}}\Star}
+\makeevenfoot{plain}{}{\pageInFooter}{}
+\makeoddfoot{plain}{}{\pageInFooter}{}
+\makeevenfoot{headings}{}{\pageInFooter}{}
+\makeoddfoot{headings}{}{\pageInFooter}{}
+
+
+%
+% Custom chapter style
+%
+\makeatletter 
+\makechapterstyle{evans}{%
+	\renewcommand*{\chapnamefont}{\hp\large}
+	\renewcommand*{\chapnumfont}{\chapnamefont}
+	\renewcommand*{\chaptitlefont}{\hp\huge}
+	
+	\setlength{\beforechapskip}{4\baselineskip plus 2\baselineskip minus 2\baselineskip }
+	\setlength{\midchapskip}{0pt}
+	\setlength{\afterchapskip}{1\baselineskip}
+	
+	\renewcommand*{\printchapternum}{%
+		\chapnumfont \hyperref[contents]{\textls[30]{\NUMTONAME{\thechapter}}}}
+	% \renewcommand*{\printchapternonum}{%
+		% \chapnumfont \hyperref[contents]{Something no num}}
+	
+	\renewcommand*{\printchaptername}{%
+		\centering \chapnamefont \hyperref[contents]{\MakeUppercase{\textls[30]{\@chapapp}}}
+	}
+	
+	\renewcommand*{\printchaptertitle}[1]{%
+		%~ \vskip -1.5cm 
+		% \bubble\renewcommand{\bubble}{\nobubble}
+		\vskip 0pt\begin{center}\chaptitlefont \textls[50]{\MakeUppercase{##1}}\end{center}\par
+		% \vskip 1cm
+	}
+	
+	\renewcommand*{\chaptermark}[1]{
+		\markboth{\MakeUppercase{##1}}{
+			\MakeUppercase{\chaptername}~\NUMTONAME{\thechapter}}}
+	\renewcommand*{\tocmark}{\markboth{}{\MakeUppercase{Contents}}}
+	
+	\renewcommand{\tocheadstart}{\chapterheadstart}
+	\renewcommand{\aftertoctitle}{\thispagestyle{empty}\afterchaptertitle}
+
+  % \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt} 
+  % \def\chapterheadstart{\vspace*{\beforechapskip}}%
+  % \def\printchaptername{\chapnamefont \@chapapp}%
+  % \def\chapternamenum{\space}%
+  % \def\printchapternum{\chapnumfont \thechapter}%
+  % \def\afterchapternum{\par\nobreak\vskip \midchapskip}%
+  % \def\printchapternonum{}%
+  % \def\printchaptertitle##1{\chaptitlefont ##1}%
+  % \def\afterchaptertitle{\par\nobreak\vskip \afterchapskip}%
+}
+\makeatother
+\chapterstyle{evans}
+
+\def\chapterheadstart{\vspace*{-1\baselineskip}\vspace*{-1\topskip}\vspace*{\beforechapskip}}
+
+%
+% Subsection
+%
+\setsubsecheadstyle{\scshape}
+%\bottomsectionskip=0pt plus 1fill
+%~ \raggedbottomsection
+%\subsecindent %            heading indent
+\beforesubsecskip=1.5\baselineskip %        skip before the heading
+\aftersubsecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
+\setsubsechook{\nopagebreak\vskip 0pt plus 3\baselineskip}
+
+%
+% Lettrine font pick
+%
+\renewcommand{\LettrineFontHook}{\hp}
+\renewcommand{\LettrineTextFont}{}
+
+\newcommand\lettrinemph[3][]{\lettrine[#1]{#2}{\emph{#3}}}
+\renewcommand{\DefaultLoversize}{.1}
+\renewcommand{\DefaultLraise}{0}
+
+%
+% Epigraph configuration
+%
+\setlength{\epigraphwidth}{\textwidth}
+
+\epigraphtextposition{flushleftright}
+\epigraphfontsize{\footnotesize}
+\setlength{\epigraphrule}{0pt}
+\setlength{\beforeepigraphskip}{0pt}
+\setlength{\afterepigraphskip}{\baselineskip}
+
+\makeatletter
+\renewcommand{\epigraph}[2]{%
+	\vspace{\beforeepigraphskip}%
+	{%
+		\epigraphsize%
+		\begin{\epigraphflush}%
+			\begin{minipage}{\epigraphwidth}%
+				\centering\emph{#1}%
+			\end{minipage}%
+		\end{\epigraphflush}%
+	}%
+	\mbox{}\sbreak%
+}
+\makeatother
+
+%
+%
+%
+\usepackage{graphicx} % for \reflectbox
+\makeevenhead{headings}{\Stars}{
+	\hp\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
+\makeatletter
+\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hp\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
+
+\copypagestyle{cleared}{empty}
+\makepsmarks{headings}{%
+\createmark{chapter}{right}{shownumber}{\@chapapp\ }{. \ }}
+\makeatother
+
+
+%%%%%%%%%%%%%
+\setlength{\emergencystretch}{.06\textwidth}
+
+% Allow linebreaks after em-dash and hyphens, except when they’re followed by punctuation
+
+\newXeTeXintercharclass \punctuationClass
+
+\XeTeXcharclass `\’ \punctuationClass
+\XeTeXcharclass `\‘ \punctuationClass
+\XeTeXcharclass `\“ \punctuationClass
+\XeTeXcharclass `\” \punctuationClass
+\XeTeXcharclass `\. \punctuationClass
+\XeTeXcharclass `\, \punctuationClass
+\XeTeXcharclass `\: \punctuationClass
+\XeTeXcharclass `\? \punctuationClass
+\XeTeXcharclass `\! \punctuationClass
+\XeTeXcharclass `\: \punctuationClass
+
+\newXeTeXintercharclass \dashClass
+\XeTeXcharclass `\— \dashClass
+\XeTeXcharclass `\- \dashClass
+
+\XeTeXinterchartokenstate = 1
+
+\def\morhyphenpenalty{75}
+\exhyphenpenalty=10000
+
+\XeTeXinterchartoks \dashClass 0 = {\hskip 0pt\penalty \morhyphenpenalty}
+
+%
+% Adjust space around lists
+%
+\setlength{\topsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
+\setlength{\partopsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
