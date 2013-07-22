@@ -27,3 +27,5 @@ OPT := $(OPT) "-output-directory=out"
 once:
 	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN) 
 
+clean:
+	rm out/hp* out/chapters/hp*
