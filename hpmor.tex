@@ -4,6 +4,11 @@
 \usepackage{xspace}		% Takes care of spaces after macros
 \usepackage{amsmath}		% Provides the align environment, used in chapter 13 for the notes
 
+%~ \usepackage{savesym}
+%~ \savesymbol{textls}
+\usepackage[protrusion=true]{microtype}
+%~ \restoresymbol{MICROTYPE}{textls}
+
 \usepackage{fontspec}		% For the many fonts
 \usepackage{xunicode}
 
@@ -11,13 +16,13 @@
 
 \usepackage{eso-pic,picture}
 
-\usepackage[bookmarks=true,unicode=false,pdfborder={0 0 0},
+\usepackage[bookmarks=true,unicode=true,pdfborder={0 0 0},
 	pdftitle={Harry Potter and the Methods of Rationality},
 	pdfauthor={LessWrong}, breaklinks={true},
-	pdfkeywords={Harry Potter, rationality}
+	pdfkeywords={Harry Potter, rationality},pdfencoding=auto
 ]{hyperref}
 
-\usepackage{hp-hacks}
+\include{hp-hacks}
 \include{hp-format}
 
 \hyphenation{Her-mi-o-ne Gran-ger bru-shes Gryf-fin-dor Le-strange 
@@ -25,20 +30,11 @@ some-where which-ev-er Hog-warts re-pli-cat-ed ran-dom sta-tis-ti-cal Wi-zen-gam
 
 \newcommand{\BBref}[1]{69}
 
-\emergencystretch=\textwidth
 
-\newlength\cucu
-
-\newcommand{\sz}[1]{%
-	\settoheight{\cucu}{\parbox{\textwidth}{#1}}%
-	\showthe\cucu%
+% Disable textls, doesn’t work with xetex
+\renewcommand{\textls}[2][ignore]{
+	#2
 }
-
-\setlength{\cucu}{.5\textwidth + 0pt plus 1fil minus 3pt}
-%~ \showthe\cucu
-
-%~ \showthe\baselineskip
-%~ 14.5pt
 
 
 \begin{document}

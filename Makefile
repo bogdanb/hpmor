@@ -15,7 +15,7 @@ BOOK=hp.pdf
 
 LATEX=xelatex
 
-OPT := "-halt-on-error"
+#~ OPT := "-halt-on-error"
 #OPT="-interaction=batchmode"
 OPT := $(OPT) "-output-directory=out"
 
