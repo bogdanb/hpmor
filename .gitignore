@@ -30,3 +30,6 @@
 *.vrb
 *.xdy
 *.tdo
+ffn-html/*.md5
+ffn-html/*.ts
+ffn-html/*.ts-orig
