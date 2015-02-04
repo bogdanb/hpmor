@@ -1,0 +1,73 @@
+=== Chapter headings ===
+
+Chapters that aren't part of a continuing series look like this:
+
+\chapter{The Fundamental Attribution Error}
+
+Chapters that are part of a continuing series look like one of these:
+
+\partchapter{Working in Groups}{I}
+
+\namedpartchapter{Self-Actualization}{SA}{VIII}{The Sacred and the Mundane}
+
+The first is pretty simple; it's just the title of the chapter
+followed by which part it is.
+
+The second looks like the title of the chapter, then the abbreviation
+for the title of the chapter, then the part, then the title of the
+part.
+
+
+=== First sentences ===
+
+Normally, a chapter starts like this:
+
+\lettrine{P}{adma} Patil had finished
+
+That creates the large initial letter.
+
+If the first paragraph of the chapter is all italics, though, it looks
+like this:
+
+\begin{em}\lettrine{T}{he} red jet of fire took Hannah full in the
+[...]
+blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
+
+
+=== Subsections ===
+
+\subsection{Final Aftermath:}
+
+
+=== Epigraphs ===
+
+I'm tempted to remove all of these. The initial PDF only has 18 of
+them, having removed all the ones like "Disclaimer: J. K. Rowling is
+watching you from where she waits, eternally in the void between
+worlds." I think the rest can go, too. If you want them, they look
+like this:
+
+\epigraph{“He’s only eleven years old, Hermione.”\\“So are you.”\\“I don’t count.”}{}
+
+The \\ creates a new line.
+
+
+=== Misc === 
+
+There are some other things relating to newspaper headlines and such;
+check the original versions of the chapters they appear in for the
+appropriate markup.
+
+The conversion tool has marked a number of weird paragraphs with:
+
+*** FIXME: ***
+
+I think they're all related to text that is centered in the original,
+and probably requires an appropriate style to be applied in the
+TeX. Check the original TeX for hints on what to do for new chapters.
+
+The original maintainer has use \shout{} for emphasis when all-caps
+text appears in the original, but I'm not sure this is appropriate
+within spoken dialog, for example. I might try bolding them with
+\textbf{} or underlining with \underline{}, and changing their case
+back to lower. See what looks good.
