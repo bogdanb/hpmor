@@ -3,7 +3,7 @@
 TEXFON :="./xfonts//:"
 TEXIN :=".:./pkg//:"
 
-CHAPTERS=$(wildcard chapters/hp-ch*.tex)
+CHAPTERS=$(wildcard new-chapters/hp-ch*.tex)
 IMAGES=$(wildcard fanart/ch*.jpg)
 
 MAIN=hpmor.tex
@@ -28,4 +28,4 @@ once:
 	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN) 
 
 clean:
-	rm out/hp* out/chapters/hp*
+	rm out/hp* out/chapters/hp* out/new-chapters/hp*
