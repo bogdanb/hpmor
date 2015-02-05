@@ -4,6 +4,8 @@ while (<>) {
 }
 
 $text =~ s%&#8239;%%g;
+$text =~ s%<em>\s*"%"<em>%g;
+$text =~ s%"\s*</em>%</em>"%g;
 $text =~ s%<em><br></em>%<br>%gi;
 $text =~ s%</em>(\s+)<em>%\1%gi;
 $text =~ s%</em><em>([^<]*?)</em><em>%\\underline{\1}%gi;
