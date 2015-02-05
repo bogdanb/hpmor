@@ -1,1 +1,9 @@
-Not all occurences of all-caps text have been changed to correctly-capitalized small-caps. This is especially true for chapters 84 and up.
+Not all occurences of all-caps text have been changed to
+correctly-capitalized small-caps. This is especially true for chapters
+84 and up.
+
+Replace \emph with \parsel (and make a \parsel macro for
+parseltongue). Maybe a script font? Not just italics, though.
+
+Chapter 86: Find a better way to format the hypotheses, and maybe the intro.
+
