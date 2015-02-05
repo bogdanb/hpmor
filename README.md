@@ -1,7 +1,7 @@
 HPMOR
 =====
 
-Latex version of “Harry Potter and the Methods of Rationality”
+LaTeX/PDF version of “Harry Potter and the Methods of Rationality”
 
 Files
 =====
