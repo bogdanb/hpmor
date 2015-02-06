@@ -6,3 +6,5 @@
 # And the chapters subdirectory
 !chapters
 !new-chapters
+# And the PDF
+!hpmor.pdf
