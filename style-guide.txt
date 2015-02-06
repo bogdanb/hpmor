@@ -71,3 +71,30 @@ text appears in the original, but I'm not sure this is appropriate
 within spoken dialog, for example. I might try bolding them with
 \textbf{} or underlining with \underline{}, and changing their case
 back to lower. See what looks good.
+
+
+=== HACKS ===
+
+These are macros defined in hp-hacks.tex
+
+\begin{writtenNote}
+\letterAddress{Dear Me,}
+
+Please play the game. You can only play the game once in a
+lifetime. This is an irreplaceable opportunity.
+
+Recognition code 927, I am a potato.
+
+\letterClosing[Yours,]{You.}
+\end{writtenNote}
+
+
+\shout{Foo} - small caps
+\scream{Foo} - make uppercase
+\abbrev{FOO} - makes lowercase and then small-caps?
+
+\headline{Foo Bar Baz} -  centers and small-caps
+\inlineheadline{Foo Bar Baz} - just small caps again
+
+\prophecy{foo} - an alias for \shout{}, currently.
+
