@@ -24,6 +24,6 @@ Contributing
 
 If you'd like to help, the files to edit are in new-chapters/. 
 
-NB: I've moved the Omakase Files chapters (11 and 64) to the end of the PDF, so
+NB: I've moved the Omake Files chapters (11 and 64) to the end of the PDF, so
 while the original chapter numbers are accurate in the filenames, they're off by 
 one or two once compiled into the PDF.
