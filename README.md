@@ -24,8 +24,6 @@ Files
 * xfonts/ - the various fonts used
 * Makefile - use “make” to run xelatex twice, “make once” to run it just once, “make clean” to empty the out folder
 
-* auto-src/ - don't touch these; they're automatically updated from the fanfiction.net source, so that I can track revisions to the original and patch them back into the PDF.
-* tools/ - helper utilities for tracking changes to the original
 
 Contributing
 ============
