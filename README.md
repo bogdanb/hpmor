@@ -3,6 +3,14 @@ HPMOR
 
 LaTeX/PDF version of “Harry Potter and the Methods of Rationality”
 
+This fork incorporates changes made to the chapters after they were added to 
+the PDF. Chapter 9, for example, has had a large chunk moved to the 
+"Omake Files" chapter since it was first published, due to reader reactions.
+Other chapters have had significant changes made in order to work with later
+chapters as they were written. Because the PDF conversion was a manual process,
+few of these changes were reflected in the PDF until now.
+
+
 Files
 =====
 
