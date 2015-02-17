@@ -62,7 +62,9 @@
 	\setlength{\afterchapskip}{1\baselineskip}
 	
 	\renewcommand*{\printchapternum}{%
-		\chapnumfont \hyperref[contents]{\textls[30]{\NUMTONAME{\thechapter}}}}
+		\chapnumfont \hyperref[contents]{\textls[30]{
+\IfInteger{\thechapter}{\NUMTONAME{\thechapter}}{\thechapter}
+}}}
 	% \renewcommand*{\printchapternonum}{%
 		% \chapnumfont \hyperref[contents]{Something no num}}
 	
@@ -78,8 +80,19 @@
 	}
 	
 	\renewcommand*{\chaptermark}[1]{
-		\markboth{\MakeUppercase{##1}}{
-			\MakeUppercase{\chaptername}~\NUMTONAME{\thechapter}}}
+		\markboth{
+                  \MakeUppercase{##1}
+                }{
+		  \MakeUppercase{\chaptername}~
+%                  \IfInteger{\thechapter}{
+%                    \NUMTONAME{\thechapter}
+%                    spell: \thechapter
+%                  }{
+                    \thechapter
+%                  }
+                }
+        }
+
 	\renewcommand*{\tocmark}{\markboth{}{\MakeUppercase{Contents}}}
 	
 	\renewcommand{\tocheadstart}{\chapterheadstart}

@@ -28,4 +28,4 @@ once:
 	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN) 
 
 clean:
-	rm out/hp* out/chapters/hp* out/new-chapters/hp*
+	rm out/hp* out/new-chapters/hp*

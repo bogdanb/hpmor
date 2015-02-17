@@ -12,6 +12,8 @@
 \usepackage{fontspec}		% For the many fonts
 \usepackage{xunicode}
 
+\usepackage{xstring}
+
 %\usepackage[expansion,factor=30000]{microtype}
 
 \usepackage{eso-pic,picture}
@@ -46,6 +48,7 @@ Wi-zen-gam-ot an-aly-se an-aly-sis}
 %~ \label{contents}
 \include{hp-intro}
 \include{hp-contents}
+
 \include{new-chapters/hpmor-chapter-001}
 \include{new-chapters/hpmor-chapter-002}
 \include{new-chapters/hpmor-chapter-003}
@@ -152,6 +155,9 @@ Wi-zen-gam-ot an-aly-se an-aly-sis}
 
 \label{last:chapter}
 % Appendices, etc.
+
+\appendix
+\renewcommand\chaptername{Appendix}
 
 \include{new-chapters/hpmor-chapter-011}
 \include{new-chapters/hpmor-chapter-064}
