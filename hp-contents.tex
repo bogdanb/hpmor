@@ -1,5 +1,5 @@
-%~ \cleartorecto
-\clearpage
+\cleartorecto
+% \clearpage
 \renewcommand*{\printtoctitle}[1]{\centering\Huge{\hp\MakeUppercase{#1}}}
 \setlength{\cftbeforechapterskip}{.5\baselineskip plus 12pt minus 3pt}
 \renewcommand*{\cftchapterleader}{\space—\space}
@@ -20,7 +20,9 @@
 \phantomsection
 \label{contents}
 
-%\thispagestyle{empty}
+\thispagestyle{empty}
+
+\pagenumbering{gobble}
 \tableofcontents*
 
 \cleartorecto
@@ -69,3 +71,5 @@
 \thispagestyle{empty}
 %\pagestyle{headings}
 %\thispagestyle{empty}
+
+\pagenumbering{arabic}
