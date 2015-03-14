@@ -22,54 +22,6 @@
 
 \thispagestyle{empty}
 
-\pagenumbering{gobble}
 \tableofcontents*
 
 \cleartorecto
-
-\makeatletter
-\newlength{\beforeblurbskip}
-  \setlength{\beforeblurbskip}{.5\baselineskip}
-\newlength{\afterblurbskip}
-  \setlength{\afterblurbskip}{.5\baselineskip}
-\newlength{\blurbwidth}
-  \setlength{\blurbwidth}{.6\textwidth}
-\newlength{\blurbrule}
-  \setlength{\blurbrule}{.4\p@}
-\newcommand{\blurbsize}{\small}
-\newcommand{\blurbflush}{flushright}
-
-\newcommand{\blurbfontsize}[1]{\def\blurbsize{#1}}
-\newcommand{\blurbposition}[1]{\long\def\blurbflush{#1}}
-\newcommand{\blurbtextposition}[1]{\def\textflush{#1}}
-\newcommand{\blurbsourceposition}[1]{\def\sourceflush{#1}}
-
-\newcommand{\@blurbrule}{\rule[.5ex]{\blurbwidth}{\blurbrule}}
-
-\newcommand{\@blurbtext}[1]{%
-  \begin{minipage}{\blurbwidth}\begin{\textflush} #1\par
-    \ifdim\blurbrule>\z@ \@blurbrule \else \vspace*{1ex} \fi
-  \end{\textflush}\end{minipage}}
-
-  \newcommand{\@blurbsource}[1]{%
-  \begin{minipage}{\blurbwidth}
-    \begin{\sourceflush} #1\par
-  \end{\sourceflush}\end{minipage}}
-
-\newcommand{\blurb}[2]{
-	\vspace{\beforeblurbskip} 
-	{\blurbsize
-	\begin{\blurbflush}
-		\begin{minipage}{8cm} \@blurbtext{#1}\\ \@blurbsource{#2} \end{minipage}
-	\end{\blurbflush} 
-	\vspace{\afterblurbskip}}}
-\makeatother
-
-\thispagestyle{empty}
-\blurb{“[...A] terrific series, subtle and dramatic and stimulating.”}{David Brin}
-\blurb{“Oh Thoth Trismegistus, oh Ma’at, oh Ganesha, oh sweet lady Eris… I have not laughed so hard in years!”}{Eric S. Raymond}
-\thispagestyle{empty}
-%\pagestyle{headings}
-%\thispagestyle{empty}
-
-\pagenumbering{arabic}

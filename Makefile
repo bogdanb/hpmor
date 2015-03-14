@@ -3,29 +3,22 @@
 TEXFON :="./xfonts//:"
 TEXIN :=".:./pkg//:"
 
-CHAPTERS=$(wildcard new-chapters/hp-ch*.tex)
-IMAGES=$(wildcard fanart/ch*.jpg)
-
-MAIN=hpmor.tex
-EXTRA=hp-intro.tex hp-contents.tex hp-colophon.tex memoir-hacks.tex
-
-TEXT=hpatmor.pdf
-COVER=cover0.jpg
-BOOK=hp.pdf
-
 LATEX=xelatex
 
-#~ OPT := "-halt-on-error"
-#OPT="-interaction=batchmode"
 OPT := $(OPT) "-output-directory=out"
 
-#$(MAIN) $(EXTRA) $(CHAPTERS) $(COVER) $(IMAGES)
-^$(TEXT): 
-	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN)
-	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN) 
+OBJECTS = hpmor-1.pdf hpmor-2.pdf hpmor-3.pdf hpmor-4.pdf hpmor-5.pdf hpmor-6.pdf hpmor.pdf
 
-once:
-	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $(MAIN) 
+default : hpmor.pdf
+
+%.pdf : %.tex
+	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $<
+	TEXFONTS=$(TEXFON) TEXINPUTS=$(TEXIN) $(LATEX) $(OPT) $<
+
+all : $(OBJECTS)
+
+love :
+	@echo 'not war.' 
 
 clean:
 	rm out/hp* out/new-chapters/hp*

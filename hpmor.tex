@@ -1,53 +1,11 @@
-\documentclass[12pt,extrafontsizes,twoside,openright,final]{memoir}
-
-\usepackage{lettrine}		% Used for the fancy caps at each start of each chapter.
-\usepackage{xspace}		% Takes care of spaces after macros
-\usepackage{amsmath}		% Provides the align environment, used in chapter 13 for the notes
-
-%~ \usepackage{savesym}
-%~ \savesymbol{textls}
-\usepackage[protrusion=true]{microtype}
-%~ \restoresymbol{MICROTYPE}{textls}
-
-\usepackage{fontspec}		% For the many fonts
-\usepackage{xunicode}
-
-\usepackage{xstring}
-
-%\usepackage[expansion,factor=30000]{microtype}
-
-\usepackage{eso-pic,picture}
-
-\usepackage[bookmarks=true,unicode=true,pdfborder={0 0 0},
-	pdftitle={Harry Potter and the Methods of Rationality},
-	pdfauthor={LessWrong}, breaklinks={true},
-	pdfkeywords={Harry Potter, rationality},pdfencoding=auto
-]{hyperref}
-
-\usepackage[autostyle=false, style=english]{csquotes}
-\MakeOuterQuote{"}	% Automatic curly quotes
-
-\include{hp-hacks}
-\include{hp-format}
-
-\hyphenation{Her-mi-o-ne Gran-ger bru-shes Gryf-fin-dor Le-strange 
-some-where which-ev-er Hog-warts re-pli-cat-ed ran-dom sta-tis-ti-cal 
-Wi-zen-gam-ot an-aly-se an-aly-sis}
-
-\newcommand{\BBref}[1]{69}
-
-
-% Disable textls, doesn’t work with xetex
-\renewcommand{\textls}[2][ignore]{
-	#2
-}
-
+\input{hp-header}
 
 \begin{document}
-%~ \chapter{cont}
-%~ \label{contents}
 \include{hp-intro}
+\pagenumbering{gobble}
 \include{hp-contents}
+\include{hp-blurbs}
+\pagenumbering{arabic}
 
 \setcounter{page}{0}
 \include{new-chapters/hpmor-chapter-001}
