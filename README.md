@@ -22,7 +22,8 @@ Files
 * out/ - generated files are put here, including the main output, hpmor.pdf
 * pkg/ - some latex packages that might be tricky to find
 * xfonts/ - the various fonts used
-* Makefile - use “make” to run xelatex twice, “make once” to run it just once, “make clean” to empty the out folder
+* Makefile - use "make" to build the full PDF, "make all" to build the full PDF and all six sub-books, and "make clean" to clean up. "make hpmor-N.pdf", where N is an integer from 1 through 6, will build just that sub-book.
+
 
 
 Contributing
@@ -30,6 +31,8 @@ Contributing
 
 If you'd like to help, the files to edit are in new-chapters/. 
 
-NB: I've moved the Omake Files chapters (11 and 64) to the end of the PDF, so
-while the original chapter numbers are accurate in the filenames, they're off by 
-one or two once compiled into the PDF.
+NB: I've moved the Omake Files chapters (11 and 64) to the end of the PDF. Those chapter 
+numbers are omitted in the text, so chapter 10 is followed by chapter 12, for example.
+In the sub-book PDFs, all chapters are renumbered to start from 1 at the start of a book,
+and there are no appendices.
+
