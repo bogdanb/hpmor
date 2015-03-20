@@ -21,20 +21,24 @@
 %
 % Fonts used generally (specific fonts used only once or twice are not here).
 %
+\usepackage{xltxtra}
 \setmainfont[
   Numbers=OldStyle
-, Style=Swash
+% , Style=Swash
 , Ligatures={Common,TeX}
-, Extension=.ttf
+, Extension=.otf
 , UprightFont=*-Regular
 , ItalicFont=*-Italic
-, BoldFont=*-Medium
-, BoldItalicFont=*-Medium-Italic
-]{GaramondNo8}
+, BoldFont=*-Bold
+, BoldItalicFont=*-BoldItalic
+, SmallCapsFont=AlegreyaSC-Regular
+, SmallCapsFeatures={Letters=SmallCaps}
+]{Alegreya}
+
 \newfontface\hp[ExternalLocation]{Lumos}
 
-\newfontface\abysmal[ExternalLocation]{AlegreyaSans-LightItalic}
-\newcommand\parsel[1]{{\abysmal #1}}
+\newfontface\ptsansi[ExternalLocation]{AlegreyaSans-Italic}
+\newcommand\parsel[1]{{\ptsansi #1}}
 
 %~ \def—\emph{cucu}
 
@@ -212,3 +216,5 @@
 
 
 \usepackage[normalem]{ulem}
+
+\usepackage{xfrac}

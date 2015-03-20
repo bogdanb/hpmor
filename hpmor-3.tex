@@ -1,12 +1,16 @@
 \input{hp-header}
 
 \begin{document}
-\include{hp-intro-3}
+{
+\pagestyle{empty}
+\input{hp-intro-3}
 \pagenumbering{gobble}
-\include{hp-contents}
+\input{hp-contents}
+\cleartorecto
+}
 \pagenumbering{arabic}
+\setcounter{page}{1}
 
-\setcounter{page}{0}
 \include{new-chapters/hpmor-chapter-038}
 \include{new-chapters/hpmor-chapter-039}
 \include{new-chapters/hpmor-chapter-040}
