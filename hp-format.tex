@@ -198,9 +198,22 @@
 \XeTeXcharclass `\! \punctuationClass
 \XeTeXcharclass `\: \punctuationClass
 
+\newXeTeXintercharclass \digitClass
+\XeTeXcharclass `\0 \digitClass
+\XeTeXcharclass `\1 \digitClass
+\XeTeXcharclass `\2 \digitClass
+\XeTeXcharclass `\3 \digitClass
+\XeTeXcharclass `\4 \digitClass
+\XeTeXcharclass `\5 \digitClass
+\XeTeXcharclass `\6 \digitClass
+\XeTeXcharclass `\7 \digitClass
+\XeTeXcharclass `\8 \digitClass
+\XeTeXcharclass `\9 \digitClass
+
 \newXeTeXintercharclass \dashClass
-\XeTeXcharclass `\— \dashClass
-\XeTeXcharclass `\- \dashClass
+\XeTeXcharclass `\— \dashClass % em
+\XeTeXcharclass `\– \dashClass % en
+\XeTeXcharclass `\- \dashClass % hyphen
 
 \XeTeXinterchartokenstate = 1
 
@@ -221,3 +234,5 @@
 \usepackage{xfrac}
 
 \usepackage{censor}
+
+\usepackage[useregional]{datetime2}
