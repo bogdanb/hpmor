@@ -20,10 +20,10 @@ Files
 * new-chapters/ - one file per chapter, included from hpmor.tex
 * chapters/ - one file per chapter, the original files before my fork
 * out/ - generated files are put here, including the main output, hpmor.pdf
-* pkg/ - some latex packages that might be tricky to find
 * xfonts/ - the various fonts used
 * Makefile - use "make" to build the full PDF, "make all" to build the full PDF and all six sub-books, and "make clean" to clean up. "make hpmor-N.pdf", where N is an integer from 1 through 6, will build just that sub-book.
 
+A TeXLive 2015 or later system is required to build the book.
 
 
 Contributing
