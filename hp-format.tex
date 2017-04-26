@@ -2,7 +2,6 @@
 % the memoir package, though “configuring” on occasion means “completely messing it up”.
 
 \RequirePackage{fmtcount}
-%~ \RequirePackage{hp-hacks}
 \RequirePackage{calc}
 
 %
@@ -24,7 +23,6 @@
 \usepackage{xltxtra}
 \setmainfont[
   Numbers=OldStyle
-% , Style=Swash
 , Ligatures={Common,TeX}
 , Extension=.otf
 , UprightFont=*-Regular
@@ -40,8 +38,6 @@
 \newfontface\ptsansi[ExternalLocation, Ligatures={Common,TeX}]{AlegreyaSans-Italic}
 
 \newcommand\parsel[1]{{\ptsansi #1}}
-
-%~ \def—\emph{cucu}
 
 %
 % Page numbering/footer
@@ -70,18 +66,13 @@
 		\chapnumfont \hyperref[contents]{\textls[30]{
 \IfInteger{\thechapter}{\NUMBERstring{chapter}}{\thechapter}
 }}}
-	% \renewcommand*{\printchapternonum}{%
-		% \chapnumfont \hyperref[contents]{Something no num}}
 	
 	\renewcommand*{\printchaptername}{%
 		\centering \chapnamefont \hyperref[contents]{\MakeUppercase{\textls[30]{\@chapapp}}}
 	}
 	
 	\renewcommand*{\printchaptertitle}[1]{%
-		%~ \vskip -1.5cm 
-		% \bubble\renewcommand{\bubble}{\nobubble}
 		\vskip 0pt\begin{center}\chaptitlefont \textls[50]{\MakeUppercase{##1}}\end{center}\par
-		% \vskip 1cm
 	}
 	
 	\renewcommand*{\chaptermark}[1]{
@@ -89,29 +80,13 @@
                   \MakeUppercase{##1}
                 }{
 		  \MakeUppercase{\chaptername}~
-%                  \IfInteger{\thechapter}{
-%                    \NUMBERstring{chapter}
-%                    spell: \thechapter
-%                  }{
                     \thechapter
-%                  }
                 }
         }
 
 	\renewcommand*{\tocmark}{\markboth{}{\MakeUppercase{Contents}}}
-	
 	\renewcommand{\tocheadstart}{\chapterheadstart}
 	\renewcommand{\aftertoctitle}{\thispagestyle{empty}\afterchaptertitle}
-
-  % \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt} 
-  % \def\chapterheadstart{\vspace*{\beforechapskip}}%
-  % \def\printchaptername{\chapnamefont \@chapapp}%
-  % \def\chapternamenum{\space}%
-  % \def\printchapternum{\chapnumfont \thechapter}%
-  % \def\afterchapternum{\par\nobreak\vskip \midchapskip}%
-  % \def\printchapternonum{}%
-  % \def\printchaptertitle##1{\chaptitlefont ##1}%
-  % \def\afterchaptertitle{\par\nobreak\vskip \afterchapskip}%
 }
 \makeatother
 \chapterstyle{evans}
@@ -122,9 +97,6 @@
 % Subsection
 %
 \setsubsecheadstyle{\scshape}
-%\bottomsectionskip=0pt plus 1fill
-%~ \raggedbottomsection
-%\subsecindent %            heading indent
 \beforesubsecskip=1.5\baselineskip %        skip before the heading
 \aftersubsecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
 \setsubsechook{\nopagebreak\vskip 0pt plus 3\baselineskip}
@@ -228,11 +200,7 @@
 \setlength{\topsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
 \setlength{\partopsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
 
-
 \usepackage[normalem]{ulem}
-
 \usepackage{xfrac}
-
 \usepackage{censor}
-
 \usepackage[useregional]{datetime2}

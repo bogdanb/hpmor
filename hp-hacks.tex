@@ -1,11 +1,10 @@
-
 \fboxrule=1pt
 \fboxsep=-1pt
 
 \newcommand{\letterAddress}[1]{\pagebreak[1]\noindent{}#1\nopagebreak[4]\par}
 \newcommand{\letterClosing}[2][\vskip 1\baselineskip]{\nopagebreak[4]#1\par\nopagebreak[5]\noindent#2}
 
-\newenvironment{writtenNote}{%\parindent=1cm%
+\newenvironment{writtenNote}{%
 	\vskip 1\baselineskip plus 1\baselineskip minus 1\baselineskip%
 	\begin{adjustwidth}{\parindent}{\parindent}%
 	\par\noindent\itshape}
@@ -22,7 +21,7 @@
 \newenvironment{headlines}{
   \newcommand{\header}[1]{\begin{SingleSpace}\upshape ##1\end{SingleSpace}}
   \let\hmorSavedLabel\label
-  \renewcommand{\label}[1]{{\upshape\itshape ##1}}%[1]{\emph{##1})
+  \renewcommand{\label}[1]{{\upshape\itshape ##1}}%
   \begin{Spacing}{0.75}
   \begin{center}
   \scshape
@@ -31,7 +30,6 @@
   \end{center}
   \end{Spacing}
   \let\label\hmorSavedLabel
-  %~ \SingleSpacing
 }
 
 \newcommand{\accronym}[1]{#1}
@@ -41,15 +39,10 @@
 \newcommand{\AM}{{\scshape am}\xspace}
 \newcommand{\PM}{{\scshape pm}\xspace}
 \def\tq{{\small\raise1ex\hbox{3}\normalsize\kern-.2ex/\small\kern-.45ex\lower.1ex\hbox{4}\normalsize\spacefactor1000 }\xspace}% 
-%\newcommand{\st}{$^\mbox{st}$\xspace}
 
 \newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
 \newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
 
-%\newcommand{\St}[0]{\superscript{st}\xspace}
-%\newcommand{\Nd}[0]{\superscript{nd}\xspace}
-%\newcommand{\Rd}[0]{\superscript{rd}\xspace}
-%\newcommand{\Th}[0]{\superscript{th}\xspace}
 \newcommand{\St}[0]{{st}\xspace}
 \newcommand{\Nd}[0]{{nd}\xspace}
 \newcommand{\Rd}[0]{{rd}\xspace}
@@ -75,23 +68,6 @@
 		[#1 #2]{#1, Part~#2}}
 		
 \newcommand{\partschapter}[2]{\chapter[#1, \texorpdfstring{\abbrev{parts #2}}{parts #2}][#1 #2]{#1, Parts~#2}}
-
-
-% 1 - picture filename
-% 2 - arguments for includegraphics
-% 3 - text snippet for refererence
-% 4 - author’s title
-% 5 - author’s name
-% 6 - url
-\newcommand{\illustration}[6]{%
-%~ \begin{center}%
-%~ \phantomsection\label{fa:p\thepage}\nopagebreak%
-%~ \hyperref[illustrations]{\includegraphics[#2]{#1}}%
-%~ \pagenote[#3]{\textit{#4}, by \textsc{#5}, from \protect\par\url{#6}}%
-%~ \end{center}
-}
-%~ \newfontface\miscfont[ExternalLocation]{Miscelanea.ttf}
-%~ \def\ztar{\ \kern-.5ex\lower.5ex\hbox{\miscfont\large *}}
 
 % Draws a “magic star”, used as a decoration
 \newcommand{\Star}{{\fontspec[ExternalLocation]{Miscelanea.ttf}*}}
@@ -139,7 +115,6 @@
 }
 
 \newcommand{\hackChDXIV}[2]{%
-%~ \vskip 0\baselineskip plus 1\baselineskip
 \noindent\hfill\scalebox{#2}{#1}\hfill\mbox{}%
 \vskip 1\baselineskip plus 1\baselineskip
 }
@@ -174,4 +149,3 @@ Utilitarian Twilight}
 %
 \newcommand{\replacement}[2]{#2}
 \newcommand{\splitment}[3]{\discretionary{#1}{#2}{#3}}
-
