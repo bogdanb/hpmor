@@ -1,7 +1,7 @@
 % This file includes all the generic formatting for HPatMoR. This mostly entails configuring
 % the memoir package, though “configuring” on occasion means “completely messing it up”.
 
-\RequirePackage{ucntn} % Provides \NUMTONAME, for all-caps output
+\RequirePackage{fmtcount}
 %~ \RequirePackage{hp-hacks}
 \RequirePackage{calc}
 
@@ -68,7 +68,7 @@
 	
 	\renewcommand*{\printchapternum}{%
 		\chapnumfont \hyperref[contents]{\textls[30]{
-\IfInteger{\thechapter}{\NUMTONAME{\thechapter}}{\thechapter}
+\IfInteger{\thechapter}{\NUMBERstring{chapter}}{\thechapter}
 }}}
 	% \renewcommand*{\printchapternonum}{%
 		% \chapnumfont \hyperref[contents]{Something no num}}
@@ -90,7 +90,7 @@
                 }{
 		  \MakeUppercase{\chaptername}~
 %                  \IfInteger{\thechapter}{
-%                    \NUMTONAME{\thechapter}
+%                    \NUMBERstring{chapter}
 %                    spell: \thechapter
 %                  }{
                     \thechapter
