@@ -5,7 +5,6 @@
 !.gitignore
 # And the chapters subdirectory
 !chapters
-!new-chapters
 # And the PDFs
 !hpmor.pdf
 !hpmor-*.pdf

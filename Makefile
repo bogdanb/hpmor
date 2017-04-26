@@ -17,4 +17,4 @@ default: hpmor.pdf
 all: $(OBJECTS)
 
 clean:
-	rm out/hp* out/new-chapters/hp*
+	rm out/hp* out/chapters/hp*
