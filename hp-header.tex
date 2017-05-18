@@ -4,17 +4,12 @@
 \usepackage{xspace}		% Takes care of spaces after macros
 \usepackage{amsmath}		% Provides the align environment, used in chapter 13 for the notes
 
-%~ \usepackage{savesym}
-%~ \savesymbol{textls}
 \usepackage[protrusion=true]{microtype}
-%~ \restoresymbol{MICROTYPE}{textls}
 
 \usepackage{fontspec}		% For the many fonts
 \usepackage{xunicode}
 
 \usepackage{xstring}
-
-%\usepackage[expansion,factor=30000]{microtype}
 
 \usepackage{eso-pic,picture}
 
@@ -38,8 +33,7 @@ Wi-zen-gam-ot an-aly-se an-aly-sis remem-ber}
 \newcommand{\BBref}[1]{69}
 
 
-% Disable textls, doesn’t work with xetex
+% FIXME: Disable textls, doesn’t work with xetex
 \renewcommand{\textls}[2][ignore]{
 	#2
 }
-
