@@ -32,25 +32,11 @@
   \let\label\hmorSavedLabel
 }
 
-\newcommand{\accronym}[1]{#1}
-
-\newcommand{\emcap}[1]{#1}
-
 \newcommand{\AM}{{\scshape am}\xspace}
 \newcommand{\PM}{{\scshape pm}\xspace}
-\def\tq{{\small\raise1ex\hbox{3}\normalsize\kern-.2ex/\small\kern-.45ex\lower.1ex\hbox{4}\normalsize\spacefactor1000 }\xspace}% 
-
-\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
-\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
-
-\newcommand{\St}[0]{{st}\xspace}
-\newcommand{\Nd}[0]{{nd}\xspace}
-\newcommand{\Rd}[0]{{rd}\xspace}
-\newcommand{\Th}[0]{{th}\xspace}
-
 \newcommand{\SPHEW}{{\abbrev{SPHEW}}\xspace}
 
-% \partschapter{The Stanford Prison Experiment}{TSPE}{XIII}{Aftermaths}
+% \partchapter{The Stanford Prison Experiment}{TSPE}{XIII}{Aftermaths}
 % TOC: TSPE part XIII: Aftermaths
 % Page header: The Stanford Prison Experiment XIII: \\? Aftermaths
 % Title: The Stanford Prison Experiment, Part XIII: \\? Aftermaths
@@ -67,8 +53,6 @@
 	\chapter[\texorpdfstring{#1, \abbrev{part #2}}{#1, part #2}]%
 		[#1 #2]{#1, Part~#2}}
 		
-\newcommand{\partschapter}[2]{\chapter[#1, \texorpdfstring{\abbrev{parts #2}}{parts #2}][#1 #2]{#1, Parts~#2}}
-
 % Draws a “magic star”, used as a decoration
 \newcommand{\Star}{{\fontspec[ExternalLocation]{Miscelanea.ttf}*}}
 
@@ -98,9 +82,7 @@
 
 
 
-\newcommand{\hackChXV}{{\centering \MakeUppercase{Transfiguration is not permanent!}}}
-
-\renewcommand{\hackChXV}[1]{
+\newcommand{\hackChXV}[1]{
 \vskip 0pt plus .5cm
 \begin{center}
 \Large
@@ -119,7 +101,6 @@
 \vskip 1\baselineskip plus 1\baselineskip
 }
 
-\newlength{\Auxa}
 \newcommand{\hackChDXIVa}{
 \fontspec[ExternalLocation]{RingBearer}
 \settowidth{\versewidth}{\mbox{the}}
@@ -139,13 +120,4 @@ ThunderSmarts}
 \fontspec[ExternalLocation]{Twilight}
 Utilitarian Twilight}
 
-\newenvironment{underfull}{\hbadness=10000}{\hbadness=1000}
-
 \hbadness=10000
-%
-% In cases where the original text didn’t line-break nicely, I did (minimal) rewordings. This
-% macro was used to mark them. The first argument is the original text (ignored), and the
-% second holds the replacement.
-%
-\newcommand{\replacement}[2]{#2}
-\newcommand{\splitment}[3]{\discretionary{#1}{#2}{#3}}
