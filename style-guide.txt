@@ -41,15 +41,7 @@ blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
 
 === Epigraphs ===
 
-I'm tempted to remove all of these. The initial PDF only has 18 of
-them, having removed all the ones like "Disclaimer: J. K. Rowling is
-watching you from where she waits, eternally in the void between
-worlds." I think the rest can go, too. If you want them, they look
-like this:
-
-\epigraph{“He’s only eleven years old, Hermione.”\\“So are you.”\\“I don’t count.”}{}
-
-The \\ creates a new line.
+These have been removed.
 
 
 === Misc === 

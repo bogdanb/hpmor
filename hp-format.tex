@@ -112,32 +112,6 @@
 \renewcommand{\DefaultLraise}{0}
 
 %
-% Epigraph configuration
-%
-\setlength{\epigraphwidth}{\textwidth}
-
-\epigraphtextposition{flushleftright}
-\epigraphfontsize{\footnotesize}
-\setlength{\epigraphrule}{0pt}
-\setlength{\beforeepigraphskip}{0pt}
-\setlength{\afterepigraphskip}{\baselineskip}
-
-\makeatletter
-\renewcommand{\epigraph}[2]{%
-	\vspace{\beforeepigraphskip}%
-	{%
-		\epigraphsize%
-		\begin{\epigraphflush}%
-			\begin{minipage}{\epigraphwidth}%
-				\centering\emph{#1}%
-			\end{minipage}%
-		\end{\epigraphflush}%
-	}%
-	\mbox{}\sbreak%
-}
-\makeatother
-
-%
 %
 %
 \usepackage{graphicx} % for \reflectbox
