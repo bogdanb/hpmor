@@ -20,7 +20,7 @@ Files
 * chapters/ - one file per chapter, included from hpmor.tex
 * out/ - generated files are put here, including the main output, hpmor.pdf
 * xfonts/ - the various fonts used
-* Makefile - use "make" to build the full PDF, "make all" to build the full PDF and all six sub-books, and "make clean" to clean up. "make hpmor-N.pdf", where N is an integer from 1 through 6, will build just that sub-book.
+* Makefile - use "make" to build the full PDF, "make all" to build the full PDF and all six sub-books, and "make clean" to clean up. "make hpmor-N.pdf", where N is an integer from 1 through 6, will build just that sub-book. "make hpmor-dust-jacket-1.pdf" will make a dust jacket for book 1 (other dust jackets to follow!).
 
 A TeXLive 2015 or later system is required to build the book.
 
