@@ -4,8 +4,6 @@ TEXFON :="./xfonts//:"
 
 LATEX=xelatex
 
-OPT := $(OPT) "-output-directory=out"
-
 OBJECTS = hpmor-1.pdf hpmor-2.pdf hpmor-3.pdf hpmor-4.pdf hpmor-5.pdf hpmor-6.pdf hpmor.pdf hpmor-dust-jacket-1.pdf
 
 default: hpmor.pdf
@@ -17,4 +15,4 @@ default: hpmor.pdf
 all: $(OBJECTS)
 
 clean:
-	rm out/hp* out/chapters/hp*
+	rm -f hp*.aux hp*.log hp*.out hp*.toc $(OBJECTS) chapters/*.aux

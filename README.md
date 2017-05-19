@@ -16,7 +16,6 @@ TeXLive 2015 or later is required to build the book.
 * `hp-hacks.tex` - formatting commands used in the text
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
-* `out/` - generated files are put here, including the PDF outputs.
 * `xfonts/` - various fonts used
 * `Makefile` - contains commands to run LaTeX to build the PDFs.
 
