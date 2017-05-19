@@ -6,7 +6,7 @@ LATEX=xelatex
 
 OPT := $(OPT) "-output-directory=out"
 
-OBJECTS = hpmor-1.pdf hpmor-2.pdf hpmor-3.pdf hpmor-4.pdf hpmor-5.pdf hpmor-6.pdf hpmor.pdf
+OBJECTS = hpmor-1.pdf hpmor-2.pdf hpmor-3.pdf hpmor-4.pdf hpmor-5.pdf hpmor-6.pdf hpmor.pdf hpmor-dust-jacket-1.pdf
 
 default: hpmor.pdf
 
