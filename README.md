@@ -8,6 +8,13 @@ jacket for volume 1 (more will be added!).
 
 TeXLive 2015 or later is required to build the book.
 
+Note: the Omake Files chapters (11 and 64) have been moved to the end of the
+single-file PDF. Those chapter numbers are omitted in the text, so chapter
+10 is followed by chapter 12, for example. Similarly, the chapter
+disclaimers and epigraphs are removed to an appendix. In the six-volume
+PDFs, all chapters are renumbered to start from 1 at the start of a book,
+and there are no appendices.
+
 
 ## Files
 
@@ -32,9 +39,3 @@ TeXLive 2015 or later is required to build the book.
 ## Contributing
 
 If you’d like to help, the files to edit are in chapters/. 
-
-N.B. The Omake Files chapters (11 and 64) have been moved to the end of the
-PDF. Those chapter numbers are omitted in the text, so chapter 10 is
-followed by chapter 12, for example. In the sub-book PDFs, all chapters are
-renumbered to start from 1 at the start of a book, and there are no
-appendices.
