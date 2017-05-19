@@ -1,4 +1,94 @@
-\documentclass[12pt,extrafontsizes,twoside,openright,final]{memoir}
+\documentclass[12pt,extrafontsizes,twoside,openright,final,msmallroyalvopaper]{memoir}
 
 \input{hp-header}
-\input{hp-book-format}
+
+
+% Book-specific settings
+
+%
+% Set up page
+%
+\settypeblocksize{\topskip + 34\baselineskip}{352pt}{*}
+\setlrmargins{*}{*}{1.5}
+\setulmargins{*}{*}{1}
+\setheadfoot{\topskip +  \baselineskip}{2\baselineskip}
+\checkandfixthelayout[fixed]
+
+\fixdvipslayout % fix for xelatex
+
+
+%
+% Page numbering/footer
+%
+\def\pageInFooter{\Star\ \hp\makebox[4em][c]{\textls[30]{\thepage}}\Star}
+\makeevenfoot{plain}{}{\pageInFooter}{}
+\makeoddfoot{plain}{}{\pageInFooter}{}
+\makeevenfoot{headings}{}{\pageInFooter}{}
+\makeoddfoot{headings}{}{\pageInFooter}{}
+
+
+%
+% Custom chapter style
+%
+\makeatletter 
+\makechapterstyle{evans}{%
+	\renewcommand*{\chapnamefont}{\hp\large}
+	\renewcommand*{\chapnumfont}{\chapnamefont}
+	\renewcommand*{\chaptitlefont}{\hp\huge}
+	
+	\setlength{\beforechapskip}{4\baselineskip plus 2\baselineskip minus 2\baselineskip }
+	\setlength{\midchapskip}{0pt}
+	\setlength{\afterchapskip}{1\baselineskip}
+	
+	\renewcommand*{\printchapternum}{%
+		\chapnumfont \hyperref[contents]{\textls[30]{
+\IfInteger{\thechapter}{\NUMBERstring{chapter}}{\thechapter}
+}}}
+	
+	\renewcommand*{\printchaptername}{%
+		\centering \chapnamefont \hyperref[contents]{\MakeUppercase{\textls[30]{\@chapapp}}}
+	}
+	
+	\renewcommand*{\printchaptertitle}[1]{%
+		\vskip 0pt\begin{center}\chaptitlefont \textls[50]{\MakeUppercase{##1}}\end{center}\par
+	}
+	
+	\renewcommand*{\chaptermark}[1]{
+		\markboth{
+                  \MakeUppercase{##1}
+                }{
+		  \MakeUppercase{\chaptername}~
+                    \thechapter
+                }
+        }
+
+	\renewcommand*{\tocmark}{\markboth{}{\MakeUppercase{Contents}}}
+	\renewcommand{\tocheadstart}{\chapterheadstart}
+	\renewcommand{\aftertoctitle}{\thispagestyle{empty}\afterchaptertitle}
+}
+\makeatother
+\chapterstyle{evans}
+
+\def\chapterheadstart{\vspace*{-1\baselineskip}\vspace*{-1\topskip}\vspace*{\beforechapskip}}
+
+%
+% Subsection
+%
+\setsubsecheadstyle{\scshape}
+\beforesubsecskip=1.5\baselineskip %        skip before the heading
+\aftersubsecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
+\setsubsechook{\nopagebreak\vskip 0pt plus 3\baselineskip}
+
+%
+%
+%
+\usepackage{graphicx} % for \reflectbox
+\makeevenhead{headings}{\Stars}{
+	\hp\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
+\makeatletter
+\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hp\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
+
+\copypagestyle{cleared}{empty}
+\makepsmarks{headings}{%
+\createmark{chapter}{right}{shownumber}{\@chapapp\ }{. \ }}
+\makeatother
