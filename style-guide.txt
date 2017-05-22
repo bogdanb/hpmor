@@ -50,14 +50,6 @@ There are some other things relating to newspaper headlines and such;
 check the original versions of the chapters they appear in for the
 appropriate markup.
 
-The conversion tool has marked a number of weird paragraphs with:
-
-*** FIXME: ***
-
-I think they're all related to text that is centered in the original,
-and probably requires an appropriate style to be applied in the
-TeX. Check the original TeX for hints on what to do for new chapters.
-
 The original maintainer has use \shout{} for emphasis when all-caps
 text appears in the original, but I'm not sure this is appropriate
 within spoken dialog, for example. I might try bolding them with
@@ -89,4 +81,3 @@ Recognition code 927, I am a potato.
 \inlineheadline{Foo Bar Baz} - just small caps again
 
 \prophecy{foo} - an alias for \shout{}, currently.
-
