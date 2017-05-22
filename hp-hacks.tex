@@ -61,15 +61,19 @@
 
 % \sbreak makes the text break with centered stars in it, used as a separator in many chapters
 \def\sbreak{\mbox{}\nobreak\hfill\mbox{}\allowbreak\rule{.60\textwidth}{.0pt}\par%
-	\vskip 0pt plus 2\baselineskip\noindent{%
-		\parbox[c][0pt][c]{\textwidth}{%
-			\hfil \hbox{\lower14pt\hbox{\normalsize\Stars}}%
-		}%
-	}%
-	\vskip 0pt plus 2\baselineskip%
-	\par\rule{.5\textwidth}{.0pt}\vskip1pt\noindent}
+  \vskip 0pt plus 2\baselineskip\noindent{%
+    \parbox[c][0pt][c]{\textwidth}{%
+      \hfil \hbox{\lower14pt\hbox{\normalsize\Stars}}%
+    }%
+  }}
 
+% \later produces a standalone break
+\def\later{\sbreak%
+  \vskip 0pt plus 2\baselineskip%
+  \par\rule{.5\textwidth}{.0pt}\vskip1pt\noindent}
 
+% \latersection produces a break followed by a new section
+\newcommand{\latersection}[1]{\sbreak\section{#1}}
 
 \newcommand{\hackChXV}[1]{
 \vskip 0pt plus .5cm
