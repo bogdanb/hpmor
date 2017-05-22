@@ -16,6 +16,16 @@
 
 
 %
+% Page header
+%
+\usepackage{graphicx} % for \reflectbox
+\makeevenhead{headings}{\Stars}{
+	\hp\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
+\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hp\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
+\renewcommand*{\sectionmark}[1]{}
+
+
+%
 % Page numbering/footer
 %
 \def\pageInFooter{\Star\ \hp\makebox[4em][c]{\textls[30]{\thepage}}\Star}
@@ -70,23 +80,9 @@
 \def\chapterheadstart{\vspace*{-1\baselineskip}\vspace*{-1\topskip}\vspace*{\beforechapskip}}
 
 %
-% Subsection
+% Section
 %
-\setsubsecheadstyle{\scshape}
-\beforesubsecskip=1.5\baselineskip %        skip before the heading
-\aftersubsecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
-\setsubsechook{\nopagebreak\vskip 0pt plus 3\baselineskip}
-
-%
-%
-%
-\usepackage{graphicx} % for \reflectbox
-\makeevenhead{headings}{\Stars}{
-	\hp\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
-\makeatletter
-\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hp\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
-
-\copypagestyle{cleared}{empty}
-\makepsmarks{headings}{%
-\createmark{chapter}{right}{shownumber}{\@chapapp\ }{. \ }}
-\makeatother
+\setsecheadstyle{\scshape}
+\beforesecskip=1.5\baselineskip %        skip before the heading
+\aftersecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
+\setsechook{\nopagebreak\vskip 0pt plus 3\baselineskip\setsecnumformat{}}

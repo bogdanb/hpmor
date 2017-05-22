@@ -34,9 +34,9 @@ like this:
 blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
 
 
-=== Subsections ===
+=== Sections ===
 
-\subsection{Final Aftermath:}
+\Section{Final Aftermath:}
 
 
 === Disclaimers and Epigraphs ===
