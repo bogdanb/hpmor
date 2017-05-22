@@ -24,16 +24,18 @@ and there are no appendices.
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
 * `xfonts/` - various fonts used
-* `Makefile` - contains commands to run LaTeX to build the PDFs.
+* `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
 
 
 ## Building the book(s)
 
-* `make`: Build the one-volume PDF `hpmor.pdf`
-* `make all`: Build the one-volume PDF, six individual volumes
-  `hpmor-N.pdf`, and dust jackets.
-* `make clean`: Remove files produced by building (including PDFs).
-* `make FILENAME`: Make the given file.
+* `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
+* `latexmk hpmor-N`: Build one of the six individual volumes
+  `hpmor-1.pdf` to `hpmor-6.pdf`.
+* `latexmk hpmor-dust-jacket-1`: produce the dust jacket for Volume 1,
+  `hpmor-dust-jacket-1.pdf`.
+* `latexmk -c`: Remove files produced by building (except PDFs).
+* `latexmk -C`: Remove files produced by building (including PDFs).
 
 
 ## Contributing
