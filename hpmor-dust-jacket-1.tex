@@ -1,4 +1,6 @@
 \input{hp-dust-jacket}
+\input{hp-title}
+\input{hpmor-title-1}
 
 \begin{document}
 {
@@ -6,25 +8,7 @@
 \setbookcover{fgfirst}{remark}{
 \bfseries\color{blue}DUST JACKET}
 \setbookcover{bgpic}{front}{cover0.jpg}
-\setbookcover{fgfirst}{front}{
-\definecolor{gold}{rgb}{0.77,0.69,0.37}%
-\centering\color{white}%
-\vskip 3cm\resizebox{.95\coverwidth}{!}{\textls[100]{HARRY POTTER AND THE}}%
-\vskip 2mm%
-\color{gold}%
-\newlength{\rationalh}\settoheight{\rationalh}{%
-\resizebox{.95\coverwidth}{!}{\textls[20]{RATIONALITY}}}
-\resizebox{!}{\rationalh}{\textls[50]{METHODS}}%
-\hfil\resizebox{!}{\rationalh}{\textls[50]{OF}}%
-\vskip 2mm%
-\resizebox{.95\coverwidth}{!}{\textls[20]{RATIONALITY}}%
-\vskip 8mm%
-\color{white}%
-\resizebox{.5\coverwidth}{!}{\textls[50]{\scshape{}by Eliezer Yudkowsky}}
-\vfill
-\textls[50]{\scshape Book 1: Harry James Potter-Evans-Verres and the Methods of Rationality}
-\vskip 0.5cm
-}
+\setbookcover{fgfirst}{front}{\hptitle{\coverwidth}{\fullvolumetitle{1}}}
 
 % Spine
 \setbookcover{fgfirst}{spine}{
@@ -32,8 +16,7 @@
 \color{white}\scshape
 \vspace{0.5cm}\huge 1\\[2ex]\Large
 \vfill
-\rotatebox[origin=c]{90}{\contour[120]{black}{
-Harry James Potter-Evans-Verres and the Methods of Rationality}}
+\rotatebox[origin=c]{90}{\contour[120]{black}{\volumetitle}}
 \vfill}
 
 % Back cover

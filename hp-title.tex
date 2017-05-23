@@ -1,0 +1,23 @@
+\definecolor{gold}{rgb}{0.77,0.69,0.37}
+\newlength{\hptitlewidth}
+\newlength{\rationalh}
+\newcommand{\hptitle}[2]{% FIXME: Default first argument to \stockwidth
+  \setlength{\hptitlewidth}{#1}%
+  \centering\color{white}%
+  \vskip 3cm\resizebox{.95\hptitlewidth}{!}{\textls[100]{HARRY POTTER AND THE}}%
+  \vskip 2mm%
+  \color{gold}%
+  \settoheight{\rationalh}{\resizebox{.95\hptitlewidth}{!}{\textls[20]{RATIONALITY}}}
+  \resizebox{!}{\rationalh}{\textls[50]{METHODS}}%
+  \hfil\resizebox{!}{\rationalh}{\textls[50]{OF}}%
+  \vskip 2mm%
+  \resizebox{.95\hptitlewidth}{!}{\textls[20]{RATIONALITY}}%
+  \vskip 8mm%
+  \color{white}%
+  \resizebox{.5\hptitlewidth}{!}{\textls[50]{\scshape{}by Eliezer Yudkowsky}}%
+  \vfill%
+  \textls[50]{\scshape #2}%
+  \color{black}%
+  \vskip 1cm\ %
+}
+\providecommand{\fullvolumetitle}[1]{Book #1: \volumetitle}
