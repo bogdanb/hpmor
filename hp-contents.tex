@@ -4,14 +4,13 @@
 \renewcommand*{\cftchapterleader}{\space—\space}
 \renewcommand*{\cftchapterfillnum}[1]{%
  {\cftchapterleader}\nobreak%
- %\hbox to 1.5em{\cftchapterpagefont #1\hfil}%
  {#1}%
  \cftchapterafterpnum\par}
 \setrmarg{0em}
 \setlength\cftchapterindent{0pt}
 \setlength\cftchapternumwidth{0pt}
 \renewcommand*{\cftchapterafterpnum}{\cftparfillskip}
-\renewcommand*{\cftchapterfont}{}%\small}
+\renewcommand*{\cftchapterfont}{}
 
 \renewcommand\chapternumberline[1]{\hfil\thispagestyle{empty}{\hp\textls[30]{\IfInteger{#1}{\NUMBERstringnum{#1}}{Appendix #1}}}\hfil\strut\par\nopagebreak\hfil}
 
