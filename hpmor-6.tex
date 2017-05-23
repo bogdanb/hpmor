@@ -1,11 +1,16 @@
 \input{hp-book}
 
 \begin{document}
+{
+\pagestyle{empty}
 \input{hpmor-title-6}
 \input{hp-intro}
 \pagenumbering{gobble}
-\include{hp-contents}
+\input{hp-contents}
+\cleartorecto
+}
 \pagenumbering{arabic}
+\setcounter{page}{1}
 
 \setcounter{page}{0}
 \include{chapters/hpmor-chapter-100}
