@@ -34,22 +34,14 @@ like this:
 blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
 
 
-=== Subsections ===
+=== Sections ===
 
-\subsection{Final Aftermath:}
+\Section{Final Aftermath:}
 
 
-=== Epigraphs ===
+=== Disclaimers and Epigraphs ===
 
-I'm tempted to remove all of these. The initial PDF only has 18 of
-them, having removed all the ones like "Disclaimer: J. K. Rowling is
-watching you from where she waits, eternally in the void between
-worlds." I think the rest can go, too. If you want them, they look
-like this:
-
-\epigraph{“He’s only eleven years old, Hermione.”\\“So are you.”\\“I don’t count.”}{}
-
-The \\ creates a new line.
+These have been removed to an appendix.
 
 
 === Misc === 
@@ -57,14 +49,6 @@ The \\ creates a new line.
 There are some other things relating to newspaper headlines and such;
 check the original versions of the chapters they appear in for the
 appropriate markup.
-
-The conversion tool has marked a number of weird paragraphs with:
-
-*** FIXME: ***
-
-I think they're all related to text that is centered in the original,
-and probably requires an appropriate style to be applied in the
-TeX. Check the original TeX for hints on what to do for new chapters.
 
 The original maintainer has use \shout{} for emphasis when all-caps
 text appears in the original, but I'm not sure this is appropriate
@@ -97,4 +81,3 @@ Recognition code 927, I am a potato.
 \inlineheadline{Foo Bar Baz} - just small caps again
 
 \prophecy{foo} - an alias for \shout{}, currently.
-
