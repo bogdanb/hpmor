@@ -9,20 +9,17 @@
 %
 \usepackage{xltxtra}
 \setmainfont[
-  Numbers=OldStyle
-, Ligatures={Common,TeX}
-, Extension=.otf
+  Extension=.otf
 , UprightFont=*-Regular
 , ItalicFont=*-Italic
 , BoldFont=*-Bold
 , BoldItalicFont=*-BoldItalic
 , SmallCapsFont=AlegreyaSC-Regular
-, SmallCapsFeatures={Letters=SmallCaps}
 ]{Alegreya}
 
-\newfontface\hp[ExternalLocation, Ligatures={Common,TeX}]{Lumos}
+\newfontface\hp[ExternalLocation]{Lumos}
 
-\newfontface\ptsansi[ExternalLocation, Ligatures={Common,TeX}]{AlegreyaSans-Italic}
+\newfontface\ptsansi[ExternalLocation]{AlegreyaSans-Italic}
 
 \newcommand\parsel[1]{{\ptsansi #1}}
 
@@ -89,5 +86,5 @@
 \usepackage{xfrac}
 \usepackage{censor}
 \usepackage[useregional]{datetime2}
-\usepackage{pagecolor}
+\usepackage[nopagecolor=white,pagecolor=white]{pagecolor}
 \usepackage{afterpage}
