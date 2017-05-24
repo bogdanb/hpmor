@@ -33,7 +33,7 @@ Wi-zen-gam-ot an-aly-se an-aly-sis remem-ber}
 % Redefine \textls for XeTeX
 \usepackage{calc}
 \newcounter{hpletterspacing}
-\renewcommand{\textls}[2][100]{
+\renewcommand{\textls}[2][100]{%
   \setcounter{hpletterspacing}{#1 / \real{10.0}}%
   \addfontfeature{LetterSpace=\thehpletterspacing}#2%
 }
