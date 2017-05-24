@@ -1,7 +1,7 @@
 \definecolor{gold}{rgb}{0.77,0.69,0.37}
 \newlength{\hptitlewidth}
 \newlength{\rationalh}
-\newcommand{\hptitle}[2]{% FIXME: Default first argument to \stockwidth
+\newcommand{\hptitle}[2][\stockwidth]{%
   \setlength{\hptitlewidth}{#1}%
   \centering\color{white}%
   \vskip 3cm\resizebox{.95\hptitlewidth}{!}{\textls[100]{HARRY POTTER AND THE}}%
