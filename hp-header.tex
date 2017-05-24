@@ -30,7 +30,10 @@ Wi-zen-gam-ot an-aly-se an-aly-sis remem-ber}
 \newcommand{\BBref}[1]{69}
 
 
-% FIXME: Disable textls, doesn’t work with xetex
-\renewcommand{\textls}[2][ignore]{
-	#2
+% Redefine \textls for XeTeX
+\usepackage{calc}
+\newcounter{hpletterspacing}
+\renewcommand{\textls}[2][100]{
+  \setcounter{hpletterspacing}{#1 / \real{10.0}}%
+  \addfontfeature{LetterSpace=\thehpletterspacing}#2%
 }
