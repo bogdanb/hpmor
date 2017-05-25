@@ -1,0 +1,79 @@
+<html>
+<head>
+<style type="text/css">
+<!--
+blabla {}
+td {font-size: 10pt; border-width:1pt; border-style:solid; border-color:#FFFFFF;}
+-->
+</style>
+
+</head>
+
+<body bgcolor="#CCCCCC" text="#000000" alink="#000032" vlink="#000032" link="#000032" topmargin=0 leftmargin=5 marginwidth=5 marginheight=0 style="font-family:Verdana,Arial,Helvetica; font-size: 10pt;">
+<br>
+<center><img src="./ringbearer.gif" alt="Ringbearer" border="0"><br>
+© Pete Klassen, 2002. All Rights Reserved.<br>
+For ideas, questions or contact: <a href="mailto:thehutt@gmx.net">thehutt@gmx.net</a>
+</center><br>
+
+<b><a href="liesmich.html">Deutsche Version</a></b><br>&nbsp;<br>
+
+
+<b>About this font</b><br>
+The <i>Ringbearer</i> font is a replication of the font used in the logo of Peter Jackson's "The Lord Of The Rings" trilogy. I tried to find the original font used in the logo for about half a year, however, without success. So I just tried to re-create it, using different logo types from international sites of LotR.<br>
+<br>&nbsp;<br>
+<b>Installation</b><br>
+This font is designed for use with Windows systems. In order to install the font, unzip the ZIP file into a directory on your hard disc, run <b>Control Panel</b>, <b>Fonts</b>, select <b>File->Install New Font</b>, select the directory you've extracted the archive into. After successful installation, the "Ringbearer" font is available for use.
+<br>&nbsp;<br>
+<b>Usage</b><br>
+The Ringbearer font is for design purposes only. Using it for normal writing would not do much good. Especially, because of its decorative purpose, the font would not work in applications which do not support font kerning. If you are unsure, if your application is fit for Ringbearer, try to type in "Lord". If the letter "o" is outside of "L", you'll need a better application. I have tested it so far on Adobe Photoshop, Illustrator and Corel Draw, which work fine.<br>&nbsp;<br>
+<img src="./example1.gif" alt="" border=0>
+<br>&nbsp;<br>
+
+Basically, lower case characters should be used. Upper case characters are much more decorational, and are basically to mark the first or last letter of the word. Therefore, there are sometimes height differences, when upper-case characters are concerned. <b>"R"</b> is for example, smaller than <b>"L"</b>: "L" was used in the original "Lord of the Rings" logo to mark the first letter on the logo, and "R" is used in the middle of it. Furthermore, some of the upper-case letters are "hanging", as they are aligned to the top bound of low-case characters, for example, <b>"E"</b> as in German "Herr der RingE":<br>&nbsp;<br>
+<img src="./example2.gif" alt="" border=0><br>
+These characters are mostly used for the last letter of the logo.
+<br>&nbsp;<br>
+
+I tried to include all the different characters which were used on different logos of LotR. Therefore, sometimes it was necessary to use multiple characters for each letter. Here is the list of all the letters with comments.<br>&nbsp;<br>
+<center><img src="./alphabet.gif" alt="" border=0></center><br>&nbsp;<br>
+<table width=600 cellspacing=0 cellpadding=2 align=center border=0 style="border-width:1pt; border-style:solid; border-color:#FFFFFF; font-color:#FFFFFF;">
+<tr><td><b>Letter</b></td><td><b>Character</b></td><td><b>ASCII&nbsp;Code</b></td><td><b>Comment</b></td></tr>
+<tr><td>A</td><td>A</td><td>&nbsp;</td><td>Middle-size A as used in French <b>Anneaux</b></td></tr>
+<tr><td>E</td><td>E</td><td>&nbsp;</td><td>Hanging E; as in German <b>RingE</b></td></tr>
+<tr><td>E</td><td>Ê</td><td>Alt + 0202</td><td>Big E, as in German <b>T&uuml;rmE</b></td></tr>
+<tr><td>F</td><td>F</td><td>&nbsp;</td><td>Hanging F, as similar to E</td></tr>
+<tr><td>i</td><td>i</td><td>&nbsp;</td><td>Low-case I with reduced height, as in <b>Rings</b></td></tr>
+<tr><td>i</td><td>î</td><td>&nbsp;</td><td>Low-case I with normal height, as in <b>Zwei</b></td></tr>
+<tr><td>K</td><td>K</td><td>&nbsp;</td><td>Not on any logo; same premise as A and R</td></tr>
+<tr><td>O</td><td>O</td><td>&nbsp;</td><td>Middle-size O</td></tr>
+<tr><td>Q</td><td>Q</td><td>&nbsp;</td><td>Middle-size Q</td></tr>
+<tr><td>R</td><td>R</td><td>&nbsp;</td><td>Middle-size R, as in <b>Rings</b></td></tr>
+<tr><td>r</td><td>r</td><td>&nbsp;</td><td>Lower-case R, as in <b>Lord</b></td></tr>
+<tr><td>r</td><td>&reg;</td><td>Alt + 169</td><td>Lower-case R with prolonged tail, as in <b>Herr</b></td></tr>
+<tr><td>S</td><td>S</td><td>&nbsp;</td><td>Large capital S as in <b>Seigneur</b></td></tr>
+<tr><td>S</td><td>&szlig;</td><td>Alt + 0223</td><td>Hanging S as in <b>RingS</b></td></tr>
+<tr><td>S</td><td>&copy;</td><td>Alt + 0169</td><td>Large modified S as in <b>TowerS</b></td></tr>
+<tr><td>T</td><td>T</td><td>&nbsp;</td><td>Large capital T as in <b>Two</b></td></tr>
+<tr><td>T</td><td>&trade;</td><td>Alt + 0153</td><td>Middle-size T as in <b>Towers</b></td></tr>
+<tr><td>W</td><td>W</td><td>&nbsp;</td><td>Middle-size W</td></tr>
+</table>
+
+<br>&nbsp;<br>
+<b>About the creation</b><br>
+For creating this font, Flash and bitmap logos from different international sites were used. Especially Flash logos were very helpful, as these were in vector format and contained a lot of details. On occasions, where designs from different countries collided with each other (for example, the capital <b>"A"</b> looks different in "Anneaux" on the French logo and on "Anillos" on the Spanish one), I went for the letter which I simply liked more ;). So, for example, I took the "A" from the French "Le Seigneur des Anneaux" logo.
+In case none of the logos contained the needed character, the rest of the missing characters as well as the punctuation are derived from <b>Venetian 301 Demi</b>.
+<br>&nbsp;<br>
+
+Here an example of the different logos for "Lord of the Rings" re-created solely by using the Ringbearer Font:<br>&nbsp;<br>
+<center><img src="./example3.gif" alt="" border=0></center><br>&nbsp;<br>
+<b>Copyright Disclaimer</b><br>
+The Ringbearer font is &copy; Pete Klassen, 2002. All Rights Reserved.
+You are allowed to distribute this font free of charge only, and only with the complete contents of the original archive file included.
+You are allowed to use this font for private use only. Commercial use and/or modification of this font are <b>not allowed</b>.<br>
+Ringbearer is based on the "Lord of the Rings" Logo. &copy; 2001-2003 New Line Cinema and Wingnut Films. All Rights Reserved.<br>&nbsp;<br>
+
+PS: it's just a font from a fan for other fans.<br>&nbsp;<br>
+
+</body>
+</html>

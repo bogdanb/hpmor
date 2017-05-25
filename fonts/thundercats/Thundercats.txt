@@ -1,0 +1,21 @@
+Thundercats (True Type Font)
+----------------------------
+Based on the logo from the toyline and cartoon. Lots of sharp angles and
+'mis-sized' letters to give a stylized fantasy look.
+
+Legal Notice
+------------
+This font is released as freeware. It may not be sold, manipulated, edited,
+or redistributed without direct written consent by Neale Davidson. It may be
+used without royalties for any reasonable purpose.
+
+Version Information
+-------------------
+1.00 - August 28, 2000
+
+Special Symbols
+---------------
+
+'@' - Thundercats logo
+
+
