@@ -1,3 +1,6 @@
+N.B. This version of Lumos has had some glyphs added for HPMOR
+
+
 --------------------------------------------------August 4, 2000------
                                           readme altered 11-3-01
 Hi there! Thanks for checking out Lumos v.1, a freeware font inspired 
