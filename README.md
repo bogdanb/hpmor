@@ -33,7 +33,7 @@ and there are no appendices.
 * `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
 * `latexmk hpmor-dust-jacket-1`: produce the dust jacket for Volume 1,
-  `hpmor-dust-jacket-1.pdf`.
+  `hpmor-dust-jacket-1.pdf`. Note that this requires the corresponding volume, `hpmor-1.pdf`, to have been built first.
 * `latexmk -c`: Remove files produced by building (except PDFs).
 * `latexmk -C`: Remove files produced by building (including PDFs).
 

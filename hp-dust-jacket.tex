@@ -1,4 +1,20 @@
-\documentclass[12pt,coverwidth=164mm,coverheight=235mm,spinewidth=23mm,marklength=0mm,bleedwidth=5mm,flapwidth=63mm]{bookcover}
+% N.B. All text and images should be 6mm away from all edges
+\newcounter{bookpagecount}
+\setcounter{bookpagecount}{\XeTeXpdfpagecount"\bookfile"}
+\RequirePackage{calc} % This line must be after the previous to avoid an error
+\newlength{\hppaperwidth} % no. of pages ÷ 2 × width per sheet
+\setlength{\hppaperwidth}{\bookpaper * \value{bookpagecount} / \real{2.0}}
+\newlength{\hpspinewidth} % paper thickness + 5mm
+\setlength{\hpspinewidth}{\hppaperwidth + 5mm}
+\makeatletter
+\setbox\z@=\hbox{\XeTeXpdffile"\bookfile"\relax}
+\newlength{\hpcoverwidth} % paper width + 8mm
+\setlength{\hpcoverwidth}{\the\wd\z@ + 8mm}
+\newlength{\hpcoverheight} % coverheight: paper height
+\setlength{\hpcoverheight}{\the\ht\z@}
+\makeatother
+% flapwidth: 60mm+3mm each side
+\documentclass[12pt,coverwidth=\the\hpcoverwidth,coverheight=\the\hpcoverheight,spinewidth=\the\hpspinewidth,marklength=0mm,bleedwidth=5mm,flapwidth=63mm]{bookcover}
 
 \input{hp-header}
 
