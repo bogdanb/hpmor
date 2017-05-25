@@ -1,7 +1,10 @@
-# HPMOR
+# Harry Potter and the Methods Of Rationality
+
+https://github.com/rjl20/hpmor  
+Maintainer: Reuben Thomas <rrt@sc3d.org>
 
 A LaTeX version of
-[“Harry Potter and the Methods of Rationality”](http://www.hpmor.com) which
+[the popular didactic fan-fiction](http://www.hpmor.com) by Eliezer Yudkowsky, which
 can make a PDF ebook (one file) or printable books (either one or six
 volumes; the latter option is more practical to bind). There is also a dust
 jacket for volume 1 (more will be added!).
@@ -40,4 +43,12 @@ and there are no appendices.
 
 ## Contributing
 
-If you’d like to help, the files to edit are in chapters/. 
+Contributions are most welcome. These fall into three main categories:
+
+1. Textual corrections (where the text differs from the online original unintentionally).
+2. Textual improvements: fixing straight-up errors in the English (or deeper, the sense, story etc.), or “Britfixing”, i.e. replacing non-British usages.
+3. Design and typography. Improvements to both the PDF and print versions of the books are encouraged. Search the sources for “FIXME” to find known issues.
+
+The preferred way to submit any improvement is as a GitHub pull request. Textual corrections can also be submitted as issues in the issue tracker, or by email to the maintainer.
+
+For the GitHub URL, and email address of the maintainer, see above.
