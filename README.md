@@ -6,8 +6,8 @@ Maintainer: Reuben Thomas <rrt@sc3d.org>
 A LaTeX version of
 [the popular didactic fan-fiction](http://www.hpmor.com) by Eliezer Yudkowsky, which
 can make a PDF ebook (one file) or printable books (either one or six
-volumes; the latter option is more practical to bind). There is also a dust
-jacket for volume 1 (more will be added!).
+volumes; the latter option is more practical to bind). There are also dust
+jackets for the printable volumes.
 
 TeXLive 2015 or later is required to build the book.
 
@@ -35,14 +35,16 @@ and there are no appendices.
 * `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
 * `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
-* `latexmk hpmor-dust-jacket-1`: produce the dust jacket for Volume 1,
-  `hpmor-dust-jacket-1.pdf`. Note that this requires the corresponding volume, `hpmor-1.pdf`, to have been built first.
+* `latexmk hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
+  `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding volume, `hpmor-N.pdf`, to have been built first.
 * `latexmk -c`: Remove files produced by building (except PDFs).
 * `latexmk -C`: Remove files produced by building (including PDFs).
 
 By default, the dust jackets assume 80gsm plain paper (this affects the thickness of the book and hence the size of the dust jacket). This can be configured in `hp-paper-type.tex`; see `papers.tex` for a list of papers.
 
 The exact sizes of dust jackets may vary; the current parameters were taken from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as desired.
+
+Note that the back dust-flap is left for you to add your own text; edit `hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
 
 
 ## Contributing
