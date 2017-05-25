@@ -4,7 +4,9 @@
 % Options
 \gdef\hplrmargins{1.5}
 \DeclareOption{pdf}{\gdef\hplrmargins{1}}
-\ProcessOptions % process now as they are used immediately
+\newif\ifcover\covertrue
+\DeclareOption{nocover}{\coverfalse}
+\ProcessOptions % process now as some are used immediately
 
 \documentclass[12pt,extrafontsizes,twoside,openright,final,smallroyalvopaper]{memoir}
 

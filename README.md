@@ -46,6 +46,14 @@ The exact sizes of dust jackets may vary; the current parameters were taken from
 
 Note that the back dust-flap is left for you to add your own text; edit `hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
 
+When producing a book with a dust jacket, you may well not want the front cover as well. To suppress the front cover, change the line at the start of the relevant TeX file (e.g., for `hpmor-1`, `hpmor-1.tex`) from:
+
+`\RequirePackage{hp-book}`
+
+to
+
+`\RequirePackage[nocover]{hp-book}`
+
 
 ## Contributing
 

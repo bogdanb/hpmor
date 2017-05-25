@@ -1,5 +1,5 @@
-\input{hp-title}%
-\cleartorecto
+\input{hp-title}
+\ifcover%
 \newpagecolor{black}\afterpage{\restorepagecolor}
 \newcommand\BackgroundPic{
 \put(0,0){%
@@ -14,7 +14,35 @@
 \hptitle{\fullvolumetitle{\volumenumber}}%
 }}}%
 \ %
-\clearpage
+\cleartorecto
+\fi
+\begin{center}
+\thispagestyle{empty}
+{\hp
+\Huge\MakeUppercase{Harry Potter}\vspace*{0.5cm}
+
+\Large\MakeUppercase{and the Methods of Rationality} %
+
+\includegraphics[scale=0.5]{bubble0.png}
+
+\Large BY \vspace*{.25cm}
+
+\huge ELIEZER YUDKOWSKY%
+
+\normalsize
+
+\vspace*{1\baselineskip}
+\fullvolumetitle{\volumenumber}
+}
+
+\vspace{3cm}
+Find the book online, with author’s notes, fan art and other info at:\\
+\url{http://hpmor.com} \\
+
+\end{center}
+
+\cleartoverso
+
 \begin{center}
 \vspace*{2cm}
 
@@ -49,30 +77,4 @@ and her books:
         \hpBook{Deathly Hallows}
 }
 \end{center}
-
-\clearpage
-
-\begin{center}
-\thispagestyle{empty}
-{\hp
-\Huge\MakeUppercase{Harry Potter}\vspace*{0.5cm}
-
-\Large\MakeUppercase{and the Methods of Rationality} %
- 
-\includegraphics[scale=0.5]{bubble0.png} 
-
-\Large BY \vspace*{.25cm}
-
-\huge ELIEZER YUDKOWSKY%
-
-\normalsize
-
-\vspace*{1\baselineskip}
-\fullvolumetitle{\volumenumber}
-}
-
-\vspace{3cm}
-Find the book online, with author’s notes, fan art and other info at:\\
-\url{http://hpmor.com} \\
-
-\end{center}
+\cleartorecto% FIXME: For some reason, without this the contents ends up on a verso page (an extra blank page is added)
