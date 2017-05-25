@@ -1,3 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hp-book}
+
+% Options
+\gdef\hplrmargins{1.5}
+\DeclareOption{pdf}{\gdef\hplrmargins{1}}
+\ProcessOptions % process now as they are used immediately
+
 \documentclass[12pt,extrafontsizes,twoside,openright,final,smallroyalvopaper]{memoir}
 
 \input{hp-header}
@@ -9,7 +17,7 @@
 % Set up page
 %
 \settypeblocksize{\topskip + 34\baselineskip}{352pt}{*}
-\setlrmargins{*}{*}{1.5}
+\setlrmargins{*}{*}{\hplrmargins}
 \setulmargins{*}{*}{1}
 \setheadfoot{\topskip +  \baselineskip}{2\baselineskip}
 \checkandfixthelayout[fixed]
