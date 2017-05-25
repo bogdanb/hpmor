@@ -40,6 +40,10 @@ and there are no appendices.
 * `latexmk -c`: Remove files produced by building (except PDFs).
 * `latexmk -C`: Remove files produced by building (including PDFs).
 
+By default, the dust jackets assume 80gsm plain paper (this affects the thickness of the book and hence the size of the dust jacket). This can be configured in `hp-paper-type.tex`; see `papers.tex` for a list of papers.
+
+The exact sizes of dust jackets may vary; the current parameters were taken from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as desired.
+
 
 ## Contributing
 
