@@ -10,6 +10,14 @@ By Juan Pablo del Peral, distributed under the SIL Open Font License 1.1; see `a
 
 By Juan Pablo del Paral, distributed under the SIL Open Font License 1.1; see `AlegreyaSans/LICENSE.md`
 
+## Architects Daughter
+
+By Kimberley Gesweln, distributed under the SIL Open Font License 1.1; see `architects-daughter/SIL Open Font License.txt`
+
+## Florante at Laura
+
+Free font by Nyek! Pinoy Komek Fonts; see `Florante/Nyek! License.txt`.
+
 ## Lumos
 
 Freeware by Sarah McFalls; see `lumos/readme.txt`. The web page listed there is now at: http://www.geocities.ws/carpesaponem/lumos.htm
@@ -33,7 +41,3 @@ Freeware by Neale Davidson; FIXME: Redistribution not allowed without written co
 ## Twilight
 
 Freeware by sheslikeadream; see http://www.fonts2u.com/twilight.font
-
-## Whiteboard
-
-Freeware by Corien Bennink; see https://fontsup.com/designer/corien+bennink.html
