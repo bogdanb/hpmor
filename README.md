@@ -26,7 +26,7 @@ and there are no appendices.
 * `hp-hacks.tex` - formatting commands used in the text
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
-* `xfonts/` - various fonts used
+* `fonts/` - various fonts used
 * `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
 
 

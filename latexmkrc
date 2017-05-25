@@ -1,7 +1,7 @@
 # latexmk configuration to build HPMOR -*- mode: perl -*-
 
 # Make our fonts available to TeX
-$ENV{TEXFONTS} ="./xfonts//:";
+$ENV{TEXFONTS} ="./fonts//:";
 
 # Use XeLaTeX (equivalent to command-line -xelatex option)
 $pdflatex = "xelatex %O %S";
