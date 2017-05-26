@@ -3,11 +3,10 @@
 https://github.com/rjl20/hpmor  
 Maintainer: Reuben Thomas <rrt@sc3d.org>
 
-A LaTeX version of
-[the popular didactic fan-fiction](http://www.hpmor.com) by Eliezer Yudkowsky, which
-can make a PDF ebook (one file) or printable books (either one or six
-volumes; the latter option is more practical to bind). There are also dust
-jackets for the printable volumes.
+A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)
+by Eliezer Yudkowsky, which can make a PDF ebook (one file) or printable
+books (either one or six volumes; the latter option is more practical to
+bind). There are also dust jackets for the printable volumes.
 
 TeXLive 2015 or later is required to build the book.
 
@@ -32,21 +31,35 @@ and there are no appendices.
 
 ## Building the book(s)
 
+* `latexmk`: Build all PDFs. (If in doubt, just run this command and do
+  something else for twenty minutes!)
 * `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
 * `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
 * `latexmk hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
-  `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding volume, `hpmor-N.pdf`, to have been built first.
+  `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding
+  volume, `hpmor-N.pdf`, to have been built first.
 * `latexmk -c`: Remove files produced by building (except PDFs).
 * `latexmk -C`: Remove files produced by building (including PDFs).
 
-By default, the dust jackets assume 80gsm plain paper (this affects the thickness of the book and hence the size of the dust jacket). This can be configured in `hp-paper-type.tex`; see `papers.tex` for a list of papers.
+By default, the dust jackets assume 80gsm plain paper (this affects the
+thickness of the book and hence the size of the dust jacket). This can be
+configured in `hp-paper-type.tex`; see `papers.tex` for a list of papers.
 
-The exact sizes of dust jackets may vary; the current parameters were taken from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as desired.
+The exact sizes of dust jackets may vary; the current parameters were taken
+from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as
+desired.
 
-Note that the back dust-flap is left for you to add your own text; edit `hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
+Note that the back dust-flap is left for you to add your own text; edit
+`hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
+Make sure you remove the percent sign `%` at the start of the line, or your
+text will not be printed. (This is a safety feature to make sure that if you
+don’t change the text, the placeholder will not appear; instead, you’ll just
+get a blank back flap.)
 
-When producing a book with a dust jacket, you may well not want the front cover as well. To suppress the front cover, change the line at the start of the relevant TeX file (e.g., for `hpmor-1`, `hpmor-1.tex`) from:
+When producing a book with a dust jacket, you may well not want the front
+cover as well. To suppress the front cover, change the line at the start of
+the relevant TeX file (e.g., for `hpmor-1`, `hpmor-1.tex`) from:
 
 `\RequirePackage{hp-book}`
 
@@ -59,13 +72,21 @@ to
 
 Contributions are most welcome. These fall into three main categories:
 
-1. Textual corrections (where the text differs from the online original unintentionally).
-2. Textual improvements: fixing straight-up errors in the English (or deeper, the sense, story etc.), or “Britfixing”, i.e. replacing non-British usages.
-3. Design and typography. Improvements to both the PDF and print versions of the books are encouraged. Search the sources for “FIXME” to find known issues.
+1. Textual corrections (where the text differs from the online original
+   unintentionally).
+2. Textual improvements: fixing straight-up errors in the English (or
+   deeper, the sense, story etc.), or “Britfixing”, i.e. replacing
+   non-British usages.
+3. Design and typography. Improvements to both the PDF and print versions of
+   the books are encouraged. Search the sources for “FIXME” to find known
+   issues.
 
-For textual changes other than simple typo or language fixes, please familiarise yourself with the style guide (below).
+For textual changes other than simple typo or language fixes, please
+familiarise yourself with the style guide (below).
 
-The preferred way to submit any improvement is as a GitHub pull request. Textual corrections can also be submitted as issues in the issue tracker, or by email to the maintainer.
+The preferred way to submit any improvement is as a GitHub pull request.
+Textual corrections can also be submitted as issues in the issue tracker, or
+by email to the maintainer.
 
 For the GitHub URL, and email address of the maintainer, see above.
 
@@ -84,12 +105,11 @@ Chapters that are part of a continuing series look like one of these:
 
 `\namedpartchapter{Self-Actualization}{SA}{VIII}{The Sacred and the Mundane}`
 
-The first is pretty simple; it’s just the title of the chapter
-followed by which part it is.
+The first is pretty simple; it’s just the title of the chapter followed by
+which part it is.
 
-The second looks like the title of the chapter, then the abbreviation
-for the title of the chapter, then the part, then the title of the
-part.
+The second looks like the title of the chapter, then the abbreviation for
+the title of the chapter, then the part, then the title of the part.
 
 
 ### First sentences
@@ -100,8 +120,8 @@ Normally, a chapter starts like this:
 
 That creates the large initial letter.
 
-If the first paragraph of the chapter is all italics, though, it looks
-like this:
+If the first paragraph of the chapter is all italics, though, it looks like
+this:
 
     \begin{em}\lettrine{T}{he} red jet of fire took Hannah full in the
     [...]
@@ -120,8 +140,8 @@ These have been removed to an appendix, `hp-epigraphs.tex`.
 
 ### Miscellaneous
 
-There are some other things relating to newspaper headlines and such;
-check the chapters they appear in for the appropriate markup.
+There are some other things relating to newspaper headlines and such; check
+the chapters they appear in for the appropriate markup.
 
 
 ### Hacks
