@@ -1,5 +1,5 @@
 \cleartorecto
-\renewcommand*{\printtoctitle}[1]{\centering\Huge{\hp\MakeUppercase{#1}}}
+\renewcommand*{\printtoctitle}[1]{\centering\Huge{\hpfont\MakeUppercase{#1}}}
 \setlength{\cftbeforechapterskip}{.5\baselineskip plus 12pt minus 3pt}
 \renewcommand*{\cftchapterleader}{\space—\space}
 \renewcommand*{\cftchapterfillnum}[1]{%
@@ -12,7 +12,7 @@
 \renewcommand*{\cftchapterafterpnum}{\cftparfillskip}
 \renewcommand*{\cftchapterfont}{}
 
-\renewcommand\chapternumberline[1]{\hfil\thispagestyle{empty}{\hp\textls[30]{\IfInteger{#1}{\NUMBERstringnum{#1}}{Appendix #1}}}\hfil\strut\par\nopagebreak\hfil}
+\renewcommand\chapternumberline[1]{\hfil\thispagestyle{empty}{\hpfont\textls[30]{\IfInteger{#1}{\NUMBERstringnum{#1}}{Appendix #1}}}\hfil\strut\par\nopagebreak\hfil}
 
 \settocdepth{chapter}
 \phantomsection

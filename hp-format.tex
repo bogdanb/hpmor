@@ -18,16 +18,15 @@
 , SmallCapsFont=AlegreyaSC-Regular
 ]{Alegreya}
 
-\newfontface\hp[ExternalLocation]{Lumos}
+\newfontface\hpfont[ExternalLocation]{Lumos}
 
 \newfontface\ptsansi[ExternalLocation]{AlegreyaSans-Italic}
-
 \newcommand\parsel[1]{{\ptsansi #1}}
 
 %
 % Lettrine font pick
 %
-\renewcommand{\LettrineFontHook}{\hp}
+\renewcommand{\LettrineFontHook}{\hpfont}
 \renewcommand{\LettrineTextFont}{}
 
 \newcommand\lettrinemph[3][]{\lettrine[#1]{#2}{\emph{#3}}}

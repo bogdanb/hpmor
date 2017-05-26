@@ -30,15 +30,15 @@
 %
 \usepackage{graphicx} % for \reflectbox
 \makeevenhead{headings}{\Stars}{
-	\hp\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
-\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hp\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
+	\hpfont\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
+\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hpfont\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
 \renewcommand*{\sectionmark}[1]{}
 
 
 %
 % Page numbering/footer
 %
-\def\pageInFooter{\Star\ \hp\makebox[4em][c]{\textls[30]{\thepage}}\Star}
+\def\pageInFooter{\Star\ \hpfont\makebox[4em][c]{\textls[30]{\thepage}}\Star}
 \makeevenfoot{plain}{}{\pageInFooter}{}
 \makeoddfoot{plain}{}{\pageInFooter}{}
 \makeevenfoot{headings}{}{\pageInFooter}{}
@@ -50,9 +50,9 @@
 %
 \makeatletter 
 \makechapterstyle{evans}{%
-	\renewcommand*{\chapnamefont}{\hp\large}
+	\renewcommand*{\chapnamefont}{\hpfont\large}
 	\renewcommand*{\chapnumfont}{\chapnamefont}
-	\renewcommand*{\chaptitlefont}{\hp\huge}
+	\renewcommand*{\chaptitlefont}{\hpfont\huge}
 	
 	\setlength{\beforechapskip}{4\baselineskip plus 2\baselineskip minus 2\baselineskip }
 	\setlength{\midchapskip}{0pt}
