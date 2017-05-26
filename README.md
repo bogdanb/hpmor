@@ -63,6 +63,85 @@ Contributions are most welcome. These fall into three main categories:
 2. Textual improvements: fixing straight-up errors in the English (or deeper, the sense, story etc.), or “Britfixing”, i.e. replacing non-British usages.
 3. Design and typography. Improvements to both the PDF and print versions of the books are encouraged. Search the sources for “FIXME” to find known issues.
 
+For textual changes other than simple typo or language fixes, please familiarise yourself with the style guide (below).
+
 The preferred way to submit any improvement is as a GitHub pull request. Textual corrections can also be submitted as issues in the issue tracker, or by email to the maintainer.
 
 For the GitHub URL, and email address of the maintainer, see above.
+
+
+## Style guide
+
+### Chapter headings
+
+Chapters that aren’t part of a continuing series look like this:
+
+`\chapter{The Fundamental Attribution Error}`
+
+Chapters that are part of a continuing series look like one of these:
+
+`\partchapter{Working in Groups}{I}`
+
+`\namedpartchapter{Self-Actualization}{SA}{VIII}{The Sacred and the Mundane}`
+
+The first is pretty simple; it’s just the title of the chapter
+followed by which part it is.
+
+The second looks like the title of the chapter, then the abbreviation
+for the title of the chapter, then the part, then the title of the
+part.
+
+
+### First sentences
+
+Normally, a chapter starts like this:
+
+`\lettrine{P}{adma} Patil had finished`
+
+That creates the large initial letter.
+
+If the first paragraph of the chapter is all italics, though, it looks
+like this:
+
+    \begin{em}\lettrine{T}{he} red jet of fire took Hannah full in the
+    [...]
+    blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
+
+
+### Sections
+
+`\section{Final Aftermath:}`
+
+
+### Disclaimers and Epigraphs
+
+These have been removed to an appendix, `hp-epigraphs.tex`.
+
+
+### Miscellaneous
+
+There are some other things relating to newspaper headlines and such;
+check the chapters they appear in for the appropriate markup.
+
+
+### Hacks
+
+These are macros defined in `hp-hacks.tex`.
+
+    \begin{writtenNote}
+    \letterAddress{Dear Me,}
+    
+    Please play the game. You can only play the game once in a
+    lifetime. This is an irreplaceable opportunity.
+    
+    Recognition code 927, I am a potato.
+    
+    \letterClosing[Yours,]{You.}
+    \end{writtenNote}
+
+`\shout{Foo}`: small caps  
+`\scream{Foo}`: uppercase  
+`\abbrev{FOO}`: lowercased, small caps
+`\headline{Foo Bar Baz}`: centred small caps  
+`\inlineheadline{Foo Bar Baz}`: small caps  
+`\prophecy{foo}`: an alias for `\shout{}`  
