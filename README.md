@@ -27,12 +27,15 @@ and there are no appendices.
   individual volumes `hpmor-N.tex`.
 * `fonts/` - various fonts used
 * `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
+* `GNUMakefile` - contains targets to make a Zip of the PDFs and release them
+  to GitHub. (Mostly of interest to project maintainers.)
 
 
 ## Building the book(s)
 
 * `latexmk`: Build all PDFs. (If in doubt, just run this command and do
   something else for twenty minutes!)
+* `make all`: Build a Zip of the PDFs.
 * `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
 * `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
