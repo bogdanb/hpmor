@@ -58,14 +58,12 @@ don’t change the text, the placeholder will not appear; instead, you’ll just
 get a blank back flap.)
 
 When producing a book with a dust jacket, you may well not want the front
-cover as well. To suppress the front cover, change the line at the start of
-the relevant TeX file (e.g., for `hpmor-1`, `hpmor-1.tex`) from:
+cover as well. To suppress the front cover, use the following incantation:
 
-`\RequirePackage{hp-book}`
+`latexmk -norc -e '$options="nocover"' -r latexmkrc -g hpmor-1`
 
-to
-
-`\RequirePackage[nocover]{hp-book}`
+Of course, you can replace `hpmor-1` with any other volume, or leave it
+out to generate all PDFs with no cover.
 
 
 ## Contributing

@@ -12,4 +12,5 @@ $ENV{TEXFONTS} = './fonts//:';
 
 # Use XeLaTeX (equivalent to command-line -xelatex option)
 $pdflatex = 'xelatex %O %S';
+$pdflatex = "xelatex %O \"\\PassOptionsToPackage{$options}{hp-book}\\input{%S}\"" if $options;
 $pdf_mode = 1; $postscript_mode = $dvi_mode = 0;
