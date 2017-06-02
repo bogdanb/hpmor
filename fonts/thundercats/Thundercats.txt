@@ -19,3 +19,15 @@ Special Symbols
 '@' - Thundercats logo
 
 
+Written permission for distribution with HPMOR:
+
+From: Pixelsagas Contact <jaynz@pixelsagas.com>
+To: Reuben Thomas <rrt@sc3d.org>
+Date: Thu, 25 May 2017 20:16:04 -0400
+
+Thanks for checking with me!  The biggest concern was that it would
+get “wild” without the license text along with it or resold in a
+bundle.  As long as the license stays paired up as it is in the GitHub, this
+should be fine.
+
+Enjoy!

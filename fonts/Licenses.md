@@ -4,15 +4,15 @@ There follow author license details for all the fonts supplied. Where available,
 
 ## Alegreya
 
-By Juan Pablo del Peral, distributed under the SIL Open Font License 1.1; see `alegreya/SIL Open Font License.txt`
+By Juan Pablo del Peral, distributed under the SIL Open Font License 1.1; see `alegreya/SIL Open Font License.txt`.
 
 ## Alegreya Sans
 
-By Juan Pablo del Paral, distributed under the SIL Open Font License 1.1; see `AlegreyaSans/LICENSE.md`
+By Juan Pablo del Paral, distributed under the SIL Open Font License 1.1; see `AlegreyaSans/LICENSE.md`.
 
 ## Architects Daughter
 
-By Kimberley Gesweln, distributed under the SIL Open Font License 1.1; see `architects-daughter/SIL Open Font License.txt`
+By Kimberley Gesweln, distributed under the SIL Open Font License 1.1; see `architects-daughter/SIL Open Font License.txt`.
 
 ## Florante at Laura
 
@@ -28,7 +28,7 @@ FIXME: This contains the star glyphs for the 3-star divider. The author and lice
 
 ## NarniaBLL
 
-Freeware for personal use only by Luis Huacuja García; see `narnia_bll/SpecialReadMe.txt`
+Freeware for personal use only by Luis Huacuja García; see `narnia_bll/SpecialReadMe.txt`.
 
 ## Ringbearer
 
@@ -36,7 +36,7 @@ Freeware for non-commercial use only by Pete Klassen; see `ringbearer/readme.htm
 
 ## Thundercats
 
-Freeware by Neale Davidson; FIXME: Redistribution not allowed without written consent. I (Reuben Thomas) have asked the current copyright holder for such consent on 25th May 2017. See `thundercats/Thundercats.txt`
+Freeware by Neale Davidson. Redistribution not allowed without written consent; this consent was obtained on 26th May 2017. See `thundercats/Thundercats.txt`.
 
 ## Twilight
 
