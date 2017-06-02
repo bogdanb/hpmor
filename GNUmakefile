@@ -7,6 +7,9 @@ VERSION := $(shell echo $(TAG) | sed -e 's/^v//')
 ZIPFILE = $(PROJECT)-$(VERSION).zip
 
 all:
+	latexmk
+
+zip:
 	latexmk -g && \
 	rm -f $(ZIPFILE) && \
 	zip $(ZIPFILE) *.pdf

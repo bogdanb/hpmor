@@ -28,7 +28,7 @@ and there are no appendices.
 * `fonts/` - various fonts used
 * `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
 * `GNUMakefile` - contains targets to make a Zip of the PDFs and release them
-  to GitHub. (Mostly of interest to project maintainers.)
+  to GitHub. (Mostly of interest to project maintainers.) `make all` does the same as `latexmk` (see below), which may be useful for editor integration (e.g. Emacs).
 
 
 ## Building the book(s)
