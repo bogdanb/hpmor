@@ -4,9 +4,7 @@
 \RequirePackage{fmtcount}
 \RequirePackage{calc}
 
-%
 % Fonts used generally (specific fonts used only once or twice are not here).
-%
 \usepackage{xltxtra}
 \defaultfontfeatures{Ligatures={TeX}}
 \setmainfont[
@@ -23,9 +21,7 @@
 \newfontface\ptsansi[ExternalLocation]{AlegreyaSans-Italic}
 \newcommand\parsel[1]{{\ptsansi #1}}
 
-%
 % Lettrine font pick
-%
 \renewcommand{\LettrineFontHook}{\hpfont}
 \renewcommand{\LettrineTextFont}{}
 
@@ -33,12 +29,7 @@
 \renewcommand{\DefaultLoversize}{.1}
 \renewcommand{\DefaultLraise}{0}
 
-
-%%%%%%%%%%%%%
-\setlength{\emergencystretch}{.06\textwidth}
-
 % Allow linebreaks after em-dash and hyphens, except when they’re followed by punctuation
-
 \newXeTeXintercharclass \punctuationClass
 
 \XeTeXcharclass `\’ \punctuationClass
@@ -76,12 +67,14 @@
 
 \XeTeXinterchartoks \dashClass 0 = {\hskip 0pt\penalty \morhyphenpenalty}
 
-%
 % Adjust space around lists
-%
 \setlength{\topsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
 \setlength{\partopsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
 
+% Miscellaneous global typesetting parameters
+\setlength{\emergencystretch}{.06\textwidth}
+
+% Various packages used
 \usepackage[normalem]{ulem}
 \usepackage{xfrac}
 \usepackage{censor}
