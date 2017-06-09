@@ -14,3 +14,14 @@ $ENV{TEXFONTS} = './fonts//:';
 $pdflatex = 'xelatex %O %S';
 $pdflatex = "xelatex %O \"\\PassOptionsToPackage{$options}{hp-book}\\input{%S}\"" if $options;
 $pdf_mode = 1; $postscript_mode = $dvi_mode = 0;
+
+# Install git hooks for gitinfo2 if not already installed
+my $hooks_dir = '.git/hooks';
+my $checkout = "$hooks_dir/post-checkout";
+if (!-e $checkout) {
+  use File::Copy;
+  copy('post-checkout', $checkout) or die "Could not copy `$checkout' to `$hooks_dir'\n";
+  system 'chmod', '+x', $checkout;
+  symlink 'post-checkout', "$hooks_dir/post-commit" or die 'Could not create symlink';
+  symlink 'post-checkout', "$hooks_dir/post-merge" or die 'Could not create symlink';
+}
