@@ -74,6 +74,17 @@
 % Miscellaneous global typesetting parameters
 \setlength{\emergencystretch}{.06\textwidth}
 
+% Try to avoid excessive hyphens
+\doublehyphendemerits=30000
+\finalhyphendemerits=30000
+\adjdemerits=10000
+\brokenpenalty10000\relax
+
+% Avoid widows and orphans
+% https://mailman.ntg.nl/pipermail/ntg-context/2013/074250.html
+\widowpenalty 10000
+\clubpenalty 10000
+
 % Various packages used
 \usepackage[normalem]{ulem}
 \usepackage{xfrac}
