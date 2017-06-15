@@ -68,6 +68,10 @@ cover as well. To suppress the front cover, use the following incantation:
 Of course, you can replace `hpmor-1` with any other volume, or leave it
 out to generate all PDFs with no cover.
 
+To build a single chapter, from the `chapters` directory use the command:
+
+`latexmk -norc -e '$chapter=N' -r ../latexmkrc -g hpmor-chapter-NNN`
+
 
 ## Contributing
 
