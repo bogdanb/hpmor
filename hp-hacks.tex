@@ -73,37 +73,5 @@
 % \latersection produces a break followed by a new section
 \newcommand{\latersection}[1]{\sbreak\section{#1}}
 
-% Hanging paras for play scripts in Omake IV
+% Hanging paras for play scripts (used in Omake IV)
 \newenvironment{playdialog}{\begin{hangparas}{2em}{1}}{\end{hangparas}}
-
-
-% Omake titles
-
-\newcommand{\hackChLXIV}[2][1.5]{%
-\vspace*{2\baselineskip plus 1\baselineskip minus 1\baselineskip}%
-\noindent\hfill\scalebox{#1}{#2}\hfill\mbox{}%
-\vskip 1\baselineskip plus 1\baselineskip
-}
-
-\newcommand{\hackChLXIVx}[2][1.5]{%
-  \hackChLXIV[#1]{\MakeUppercase{#2}}
-}
-
-\newcommand{\hackChLXIVa}{
-\fontspec[ExternalLocation]{RingBearer}
-\settowidth{\versewidth}{\mbox{the}}
-Lord\scalebox{.40}{\parbox[b]{\versewidth}{
-	\centering of\\\nointerlineskip\vskip 4pt the}}Ratîonalît\raisebox{-.32ex}{Y}
-}
-
-\newcommand{\hackChLXIVb}{
-\fontspec[ExternalLocation]{NarniaBLL}
-456}
-
-\newcommand{\hackChLXIVd}{
-\fontspec[ExternalLocation]{Thundercats}
-ThunderSmarts}
-
-\newcommand{\hackChLXIVh}{
-\fontspec[ExternalLocation]{Twilight}
-Utilitarian Twilight}
