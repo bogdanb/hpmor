@@ -21,13 +21,32 @@
 \newfontface\ptsansi[ExternalLocation]{AlegreyaSans-Italic}
 \newcommand\parsel[1]{{\ptsansi #1}}
 
-% Lettrine font pick
+% Drop-caps at start of chapters
 \renewcommand{\LettrineFontHook}{\hpfont}
 \renewcommand{\LettrineTextFont}{}
+\renewcommand{\DefaultLoversize}{.2}
+\renewcommand{\DefaultLraise}{0.1}
 
-\newcommand\lettrinemph[3][]{\lettrine[#1]{#2}{\emph{#3}}}
-\renewcommand{\DefaultLoversize}{.1}
-\renewcommand{\DefaultLraise}{0}
+% Extend lettrine cutout when more than one paragraph goes alongside the drop-cap
+% Copied, with different macro names, from
+% https://tex.stackexchange.com/questions/369868/using-lettrine-with-short-paragraphs
+\newcount\hplettrinecount
+\makeatletter
+\def\hplettrineextrapara{%
+\ifnum\prevgraf<\c@L@lines
+\hplettrinecount\z@
+\loop
+\ifnum\hplettrinecount<\prevgraf
+\advance\hplettrinecount\@ne
+\afterassignment\hplettrinedima\count@\L@parshape\relax
+\repeat
+\parshape\L@parshape
+\fi}
+\def\hplettrinedima{\afterassignment\hplettrinedimb\dimen@}
+\def\hplettrinedimb{\afterassignment\hplettrinedef\dimen@}
+\def\hplettrinedef#1\relax{\edef\L@parshape{\the\numexpr\count@-1\relax\space #1}}
+\makeatother
+\newcommand{\lettrinepara}[3][]{\lettrine[nindent=0pt,#1]{#2}{#3}}
 
 % Allow linebreaks after em-dash and hyphens, except when they’re followed by punctuation
 \newXeTeXintercharclass \punctuationClass
