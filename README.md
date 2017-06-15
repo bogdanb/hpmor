@@ -72,6 +72,10 @@ To build a single chapter, from the `chapters` directory use the command:
 
 `latexmk -norc -e '$chapter=N' -r ../latexmkrc -g hpmor-chapter-NNN`
 
+Similarly, to build a single appendix or other non-chapter section, from the top directory use the command:
+
+`latexmk -norc -e '$chapterfile=FILENAME' -r latexmkrc -g FILENAME`
+
 
 ## Contributing
 

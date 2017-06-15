@@ -24,11 +24,15 @@ if (-d $hooks_dir) {
 $pdflatex = 'xelatex %O %S';
 $pdflatex = "xelatex %O \"\\PassOptionsToPackage{$options}{hp-book}\\input{%S}\"" if $options;
 my $basedir = ".";
-if ($chapter) {
-  die "Not in chapters/ directory" if !-d "../$hooks_dir";
-  $basedir = "..";
-  $ENV{TEXINPUTS} = ".:$basedir:";
-  my $chapterfile = 'hpmor-chapter-' . sprintf('%03d', $chapter);
+if (defined($chapter) || defined($chapterfile)) {
+  if (defined($chapter)) {
+    die "Not in chapters/ directory" if !-d "../$hooks_dir";
+    $basedir = "..";
+    $ENV{TEXINPUTS} = ".:$basedir:";
+    $chapterfile = 'hpmor-chapter-' . sprintf('%03d', $chapter);
+  } else {
+    $chapter = 1;
+  }
   $pdflatex = "xelatex -jobname=$chapterfile %O \"\\RequirePackage[pdf]{hp-book}\\begin{document}\\setcounter{chapter}{" . ($chapter - 1) . "}\\input{$chapterfile}\\end{document}\"" if $chapter;
 }
 $pdf_mode = 1;
