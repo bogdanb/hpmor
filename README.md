@@ -22,7 +22,7 @@ and there are no appendices.
 
 * `hpmor.tex` - the main file
 * `hp-format.tex` - mostly sets up memoir
-* `hp-hacks.tex` - formatting commands used in the text
+* `hp-markup.tex` - logical markup commands used in the text
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
 * `fonts/` - various fonts used
@@ -153,24 +153,6 @@ There are some other things relating to newspaper headlines and such; check
 the chapters they appear in for the appropriate markup.
 
 
-### Hacks
+### Markup
 
-These are macros defined in `hp-hacks.tex`.
-
-    \begin{writtenNote}
-    \letterAddress{Dear Me,}
-    
-    Please play the game. You can only play the game once in a
-    lifetime. This is an irreplaceable opportunity.
-    
-    Recognition code 927, I am a potato.
-    
-    \letterClosing[Yours,]{You.}
-    \end{writtenNote}
-
-`\shout{Foo}`: small caps  
-`\scream{Foo}`: uppercase  
-`\abbrev{FOO}`: lowercased, small caps
-`\headline{Foo Bar Baz}`: centred small caps  
-`\inlineheadline{Foo Bar Baz}`: small caps  
-`\prophecy{foo}`: an alias for `\shout{}`  
+These are macros defined in `hp-markup.tex`. You should glance through that file to see what commands are available, and use them instead of direct markup; for example `\shout` rather than `\textsc`.
