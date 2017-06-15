@@ -73,19 +73,6 @@
 % \latersection produces a break followed by a new section
 \newcommand{\latersection}[1]{\sbreak\section{#1}}
 
-\newcommand{\hackChXV}[1]{
-\vskip 0pt plus .5cm
-\begin{center}
-\fontspec[ExternalLocation,Color=AA0000]{Florante}
-\MakeUppercase{#1}
-\settowidth{\versewidth}{\MakeUppercase{Transfiguration is not permanent!}}
-\vskip -1ex
-\fontspec[ExternalLocation,Color=2020FF]{ArchitectsDaughter}
-\resizebox{\versewidth}{.6ex}{\rotatebox{90}{I}}
-\end{center}
-\vskip 0pt plus .5cm
-}
-
 % Hanging paras for play scripts in Omake IV
 \newenvironment{playdialog}{\begin{hangparas}{2em}{1}}{\end{hangparas}}
 
