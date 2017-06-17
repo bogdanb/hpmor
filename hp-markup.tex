@@ -8,6 +8,13 @@
 \newcommand{\shout}[1]{\textsc{#1}}
 \newcommand{\scream}[1]{\MakeUppercase{#1}}
 \newcommand{\prophesy}[1]{\shout{#1}}
+\newcommand{\parselify}[1]{%
+  \StrSubstitute{#1}{ss}{ß}[\parselstring]%
+  \StrSubstitute{\parselstring}{s}{ss}[\parsselstring]%
+  \StrSubstitute{\parsselstring}{ß}{sss}[\parssselstring]%
+}
+% N.B. Other commands, such as \emph, cannot be used inside \parsel
+\newcommand\parsel[1]{\parselify{#1}{\ptsansi\parssselstring}}
 
 % Special types of text
 \newcommand{\abbrev}[1]{\textsc{\MakeLowercase{#1}}\xspace}
