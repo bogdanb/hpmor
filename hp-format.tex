@@ -99,6 +99,12 @@
 \adjdemerits=10000
 \brokenpenalty10000\relax
 
+% Make it easier to manage hyphenation
+\makeatletter
+\newcommand{\emdashhyp}{\leavevmode%
+\prw@zbreak—\discretionary{}{}{}\prw@zbreak}
+\makeatother
+
 % Avoid widows and orphans
 % https://mailman.ntg.nl/pipermail/ntg-context/2013/074250.html
 \widowpenalty 10000
@@ -112,3 +118,4 @@
 \usepackage[nopagecolor=white,pagecolor=white]{pagecolor}
 \usepackage{afterpage}
 \usepackage{gitinfo2}
+\usepackage{hyphenat}
