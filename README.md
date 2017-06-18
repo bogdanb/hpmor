@@ -4,7 +4,7 @@ https://github.com/rjl20/hpmor
 Maintainer: Reuben Thomas <rrt@sc3d.org>
 
 A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)
-by Eliezer Yudkowsky, which can make a PDF ebook (one file) or printable
+by Eliezer Yudkowsky, which can make a PDF e-book (one file) or printable
 books (either one or six volumes; the latter option is more practical to
 bind). There are also dust jackets for the printable volumes.
 
@@ -25,10 +25,13 @@ and there are no appendices.
 * `hp-markup.tex` - logical markup commands used in the text
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
+* `spelling-list.txt` - a list of words used to spell-check the book.
 * `fonts/` - various fonts used
 * `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
-* `GNUMakefile` - contains targets to make a Zip of the PDFs and release them
-  to GitHub. (Mostly of interest to project maintainers.) `make all` does the same as `latexmk` (see below), which may be useful for editor integration (e.g. Emacs).
+* `GNUMakefile` - contains targets to make a Zip of the PDFs and release
+  them to GitHub. (Mostly of interest to project maintainers.) `make all`
+  does the same as `latexmk` (see below), which may be useful for editor
+  integration (e.g. Emacs).
 
 
 ## Building the book(s)
@@ -72,7 +75,8 @@ To build a single chapter, from the `chapters` directory use the command:
 
 `latexmk -norc -e '$chapter=N' -r ../latexmkrc -g hpmor-chapter-NNN`
 
-Similarly, to build a single appendix or other non-chapter section, from the top directory use the command:
+Similarly, to build a single appendix or other non-chapter section, from the
+top directory use the command:
 
 `latexmk -norc -e '$chapterfile=FILENAME' -r latexmkrc -g FILENAME`
 
@@ -87,8 +91,8 @@ Contributions are most welcome. These fall into three main categories:
    deeper, the sense, story etc.), or “Britfixing”, i.e. replacing
    non-British usages.
 3. Design and typography. Improvements to both the PDF and print versions of
-   the books are encouraged. Search the sources for “FIXME” to find known
-   issues.
+   the books are encouraged. See the GitHub bug-tracker for known issues;
+   also, search the sources for “FIXME”.
 
 For textual changes other than simple typo or language fixes, please
 familiarise yourself with the style guide (below).
@@ -101,6 +105,21 @@ For the GitHub URL, and email address of the maintainer, see above.
 
 
 ## Style guide
+
+### Spelling
+
+When spell-checking, use `spelling-list.txt` instead of your personal
+dictionary, so the results are less dependent on your setup. (The system
+dictionary can still of course vary from one setup to another.)
+
+Words that are standard English or part of the Harry Potter universe, or are
+otherwise of “global” relevance should be added to `spelling-list.txt`.
+Exclamations (“Eeeehhhh”) and other one-offs should be added to the per-file
+word lists. (There’s obviously something of a grey area in the middle, e.g.
+one-off references to various real and fictional people.)
+
+Emacs users benefit from a `.dir-locals.el` that automatically sets up `spelling-list.txt` as the personal dictionary for all HPMOR files.
+
 
 ### Chapter headings
 
@@ -155,4 +174,15 @@ the chapters they appear in for the appropriate markup.
 
 ### Markup
 
-These are macros defined in `hp-markup.tex`. You should glance through that file to see what commands are available, and use them instead of direct markup; for example `\shout` rather than `\textsc`.
+These are macros defined in `hp-markup.tex`. You should glance through that
+file to see what commands are available, and use them instead of direct
+markup; for example `\shout` rather than `\textsc`.
+
+<!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk GNUMakefile 80gsm '
+ -->
+<!--  LocalWords:  norc nocover N' NNN chapterfile FILENAME' Britfixing dir
+ -->
+<!--  LocalWords:  Eeeehhhh el partchapter namedpartchapter lettrine adma
+ -->
+<!--  LocalWords:  textsc
+ -->
