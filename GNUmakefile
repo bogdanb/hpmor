@@ -16,6 +16,6 @@ zip:
 
 # To make a release: git tag vx.y && git push --tags && make release
 # Needs woger from https://github.com/rrthomas/woger/
-release: all
+release: zip
 	git diff --exit-code && \
 	woger github github_user=rjl20 package=$(PROJECT) version=$(VERSION) dist_type=zip github_dist_type=pdf
