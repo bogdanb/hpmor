@@ -19,3 +19,4 @@ zip:
 release: zip
 	git diff --exit-code && \
 	woger github github_user=rjl20 package=$(PROJECT) version=$(VERSION) dist_type=zip github_dist_type=pdf
+	github-release upload --user rjl20 --repo $(PROJECT) --tag $(TAG) --name $(PROJECT)-$(VERSION).pdf --file $(PROJECT).pdf -s `netrc -p github-release.github.com`
