@@ -8,7 +8,8 @@ by Eliezer Yudkowsky, which can make a PDF e-book (one file) or printable
 books (either one or six volumes; the latter option is more practical to
 bind). There are also dust jackets for the printable volumes.
 
-TeXLive 2015 or later is required to build the book.
+TeXLive 2015 or later and git are required to build the book. (Note: the
+book must be built from a git checkout.)
 
 Note: the Omake Files chapters (11 and 64) have been moved to the end of the
 single-file PDF. Those chapter numbers are omitted in the text, so chapter
