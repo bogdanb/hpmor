@@ -1,5 +1,8 @@
 # latexmk configuration to build HPMOR -*- mode: perl -*-
 
+use Config;
+use File::Spec::Functions;
+
 @default_files = (
   'hpmor',
   'hpmor-1', 'hpmor-2', 'hpmor-3', 'hpmor-4', 'hpmor-5', 'hpmor-6',
@@ -8,27 +11,29 @@
  );
 
 # Install git hooks for gitinfo2 if not already installed
-my $hooks_dir = '.git/hooks';
+my $hooks_dir = catdir('.git', 'hooks');
 if (-d $hooks_dir) {
-  my $checkout = "$hooks_dir/post-checkout";
+  my $checkout = catfile($hooks_dir, 'post-checkout');
   if (!-e $checkout) {
     use File::Copy;
-    copy('post-checkout', $checkout) or die "Could not copy `$checkout' to `$hooks_dir'\n";
-    system 'chmod', '+x', $checkout;
-    symlink 'post-checkout', "$hooks_dir/post-commit" or die 'Could not create symlink';
-    symlink 'post-checkout', "$hooks_dir/post-merge" or die 'Could not create symlink';
+    foreach ('post-checkout', 'post-commit', 'post-merge') {
+      my $hook = catfile($hooks_dir, $_);
+      copy('post-checkout', $hook) or die "Could not copy `post-checkout' to `$hook'\n";
+      my $mode = (stat($hook))[2];
+      chmod $mode | 0111, $hook;
+    }
   }
 }
 
 # Use XeLaTeX (equivalent to command-line -xelatex option)
 $pdflatex = 'xelatex %O %S';
 $pdflatex = "xelatex %O \"\\PassOptionsToPackage{$options}{hp-book}\\input{%S}\"" if $options;
-my $basedir = ".";
+my $basedir = curdir();
 if (defined($chapter) || defined($chapterfile)) {
   if (defined($chapter)) {
-    die "Not in chapters/ directory" if !-d "../$hooks_dir";
-    $basedir = "..";
-    $ENV{TEXINPUTS} = ".:$basedir:";
+    die "Not in `chapters' directory" if !-d catdir('..', $hooks_dir);
+    $basedir = updir();
+    $ENV{TEXINPUTS} = ".$Config{path_sep}$basedir$Config{path_sep}";
     $chapterfile = 'hpmor-chapter-' . sprintf('%03d', $chapter);
   } else {
     $chapter = 1;
@@ -39,4 +44,4 @@ $pdf_mode = 1;
 $postscript_mode = $dvi_mode = 0;
 
 # Make our fonts available to TeX
-$ENV{TEXFONTS} = "$basedir/fonts//:";
+$ENV{TEXFONTS} = catfile($basedir, 'fonts') . catfile('', '') x 2 . $Config{path_sep};
