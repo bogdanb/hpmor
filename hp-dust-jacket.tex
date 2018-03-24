@@ -12,8 +12,8 @@
 \setbox\z@=\hbox{\XeTeXpdffile"\bookfile"\relax}
 \newlength{\hpcoverwidth} % paper width + 8mm
 \setlength{\hpcoverwidth}{\the\wd\z@ + 8mm}
-\newlength{\hpcoverheight} % coverheight: paper height
-\setlength{\hpcoverheight}{\the\ht\z@}
+\newlength{\hpcoverheight} % coverheight: paper height + 1mm
+\setlength{\hpcoverheight}{\the\ht\z@ + 1mm}
 \makeatother
 % flapwidth: 60mm+3mm each side
 \documentclass[12pt,coverwidth=\the\hpcoverwidth,coverheight=\the\hpcoverheight,spinewidth=\the\hpspinewidth,marklength=0mm,bleedwidth=5mm,flapwidth=63mm]{bookcover}
