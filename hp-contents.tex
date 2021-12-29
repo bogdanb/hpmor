@@ -1,17 +1,26 @@
 \cleartorecto
 \renewcommand*{\printtoctitle}[1]{\centering\Huge{\hpfont\MakeUppercase{#1}}}
 \setlength{\cftbeforechapterskip}{.5\baselineskip plus 12pt minus 3pt}
+\setlength{\cftbeforepartskip}{1\baselineskip plus 12pt minus 3pt}
+\renewcommand*{\cftpartleader}{\space—\space}
+\renewcommand*{\cftpartfillnum}[1]{%
+ \cftpartafterpnum\par}
 \renewcommand*{\cftchapterleader}{\space—\space}
 \renewcommand*{\cftchapterfillnum}[1]{%
  {\cftchapterleader}\nobreak%
  {#1}%
  \cftchapterafterpnum\par}
 \setrmarg{0em}
+\setlength\cftpartindent{0pt}
+\setlength\cftpartnumwidth{0pt}
 \setlength\cftchapterindent{0pt}
 \setlength\cftchapternumwidth{0pt}
+\renewcommand*{\cftpartafterpnum}{\cftparfillskip}
 \renewcommand*{\cftchapterafterpnum}{\cftparfillskip}
+\renewcommand*{\cftpartfont}{}
 \renewcommand*{\cftchapterfont}{}
 
+\renewcommand\partnumberline[1]{\hfil\thispagestyle{empty}{\hpfont\textls[30]{\large\MakeUppercase{\partname} #1}}\hfil\strut\par\nopagebreak\hfil}
 \renewcommand\chapternumberline[1]{\hfil\thispagestyle{empty}{\hpfont\textls[30]{\IfInteger{#1}{\NUMBERstringnum{#1}}{Appendix #1}}}\hfil\strut\par\nopagebreak\hfil}
 
 \settocdepth{chapter}
