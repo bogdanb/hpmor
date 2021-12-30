@@ -19,10 +19,11 @@ zip: pdf ebooks
 	rm -f $(ZIPFILE) && \
 	zip $(ZIPFILE) *.pdf $(EBOOKS)
 
-# To make a release: git tag vx.y && git push --tags && make release
+# To make a release: git tag vx.y && make release
 # Needs woger from https://github.com/rrthomas/woger/
 release: zip
 	git diff --exit-code && \
+	git push --tags && \
 	woger github package=$(PROJECT) version=$(VERSION) dist_type=zip && \
 	for file in $(PROJECT).pdf $(EBOOKS); do \
 		suffix=$${file##*.}; \
