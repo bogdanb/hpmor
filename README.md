@@ -94,6 +94,9 @@ Contributions are most welcome. These fall into three main categories:
 3. Design and typography. Improvements to both the PDF and print versions of
    the books are encouraged. See the GitHub bug-tracker for known issues;
    also, search the sources for “FIXME”.
+4. Translations. Translations are of course most welcome! A list of known
+   translations and one or two hints are given below in the
+   [next section](#Translations).
 
 For textual changes other than simple typo or language fixes, please
 familiarise yourself with the style guide (below).
@@ -178,6 +181,24 @@ the chapters they appear in for the appropriate markup.
 These are macros defined in `hp-markup.tex`. You should glance through that
 file to see what commands are available, and use them instead of direct
 markup; for example `\shout` rather than `\textsc`.
+
+
+## Translations
+
+To translate the book, it is recommended to fork this repository, and check
+back from time to time for updates. Also, do open an issue or PR against
+this file to add the translation!
+
+It is recommended to use `polyglossia` (not `babel`).
+
+
+### Known translations
+
+Note: there are other translations of HPMOR; here are listed only
+translations of this edition.
+
+* [French](https://github.com/yeKcim/hpmor) (in progress)
+
 
 <!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk GNUMakefile 80gsm '
  -->
