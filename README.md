@@ -1,6 +1,6 @@
 # Harry Potter and the Methods Of Rationality
 
-https://github.com/rjl20/hpmor  
+https://github.com/rrthomas/hpmor  
 Maintainer: Reuben Thomas <rrt@sc3d.org>
 
 A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)

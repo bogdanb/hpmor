@@ -39,12 +39,12 @@ html_preamble = f"""
 <p>The original version of this great book 'Harry Potter and the Methods of Rationality' by Eliezer Yudkowsky is:<br/>
 <a href="https://www.hpmor.com">https://www.hpmor.com</a></p>
 <p>This e-book is based on the typesetting and revised text from:<br/>
-<a href="https://github.com/rjl20/hpmor">https://github.com/rjl20/hpmor</a></p>
+<a href="https://github.com/rrthomas/hpmor">https://github.com/rrthomas/hpmor</a></p>
 <p>This e-book was created at: {today}</p>
 <p>The latest version can be found at:<br/>
-<a href="https://github.com/rjl20/hpmor/releases/latest/">https://github.com/rjl20/hpmor/releases/latest/</a></p>
+<a href="https://github.com/rrthomas/hpmor/releases/latest/">https://github.com/rrthomas/hpmor/releases/latest/</a></p>
 <p>Source code of the converter script can be found at:<br/>
-<a href="https://github.com/rjl20/hpmor/ebook/">https://github.com/rjl20/hpmor/ebook/</a></p>
+<a href="https://github.com/rrthomas/hpmor/ebook/">https://github.com/rrthomas/hpmor/ebook/</a></p>
 """
 
 # <p>This book is not my work, I just converted the text into e-book formats.</p>
