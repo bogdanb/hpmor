@@ -17,6 +17,7 @@ import os
 import re
 import glob
 from datetime import date
+import sys
 
 # Notes
 # footnotes are converted to inline text
@@ -26,6 +27,9 @@ from datetime import date
 # Omake chapters are included in-place, not at appendix
 
 today = date.today()
+
+# chdir to script dir
+os.chdir(os.path.dirname(sys.argv[0]))
 
 dir_tex_source = "../chapters/"
 dir_tmp = "tmp"
@@ -78,7 +82,12 @@ div.later {
 div.emph {
     font-style: italic;
 }
-
+div.chapterOpeningAuthorNote {
+    font-style: italic;
+}
+div.chapterOpeningQuote {
+    font-style: italic;
+}
 span.abbrev{
 	text-transform: lowercase;
 	font-variant: small-caps;
@@ -141,6 +150,8 @@ counter_chapter = 0
 def simplify_tex(s: str) -> str:
     # end of line: CRLF-> LF
     s = s.replace("\r\n", "\n")
+    # remove Latex comments
+    s = re.sub(r"(?<!\\)%.*\n", "\n", s)
 
     # commands to remove
     s = re.sub(
@@ -200,8 +211,6 @@ def simplify_tex(s: str) -> str:
         "\\section{Utilitarian Twilight}",
     )
 
-    # remove Latex comments
-    s = re.sub(r"(?<!\\)%.*\n", "\n", s)
     # remove multiple spaces
     s = re.sub(r"  +", r" ", s)
     return s
@@ -211,8 +220,22 @@ def tex2html(s: str) -> str:
 
     #
     # Bulk text replacements
+    # Chapter 00 - Preface
+    if "Author’s introduction" in s:
+        s = re.sub(
+            r"\\begin\{itemize\}(.*?)\\end\{itemize\}",
+            r"<ul>\n\1\n</ul>",
+            s,
+            flags=re.DOTALL | re.IGNORECASE,
+        )
+        s = re.sub(
+            r"\\item (.*)$",
+            r"<li>\1</li>",
+            s,
+        )
+
     #
-    # Transfiguration is not permanent!
+    # Transfiguration is not permanent! in Chapter 15
     s = re.sub(
         r"\\begin\{center\}(.+?Transfiguration is not permanent!.+?)\\end\{center\}",
         r'<div class="center">Transfiguration is not permanent!</div>\n',
@@ -291,7 +314,9 @@ def tex2html(s: str) -> str:
     s = re.sub(r"\\(footnotemark|hyp|noindent)\{\}", "", s)
     # commands without parameters
     s = re.sub(
-        r"\\(protect|footnotemark|clearpage|penalty-10|penalty\d*|noindent)\b", "", s
+        r"\\(protect|footnotemark|authorsnotefootnotemark|clearpage|newpage|penalty-10|penalty\d*|noindent)\b",
+        "",
+        s,
     )
     # commands without parameters but followed by linebreaks
     s = re.sub(
@@ -299,6 +324,12 @@ def tex2html(s: str) -> str:
         r"",
         s,
     )
+
+    # vspace*{...}
+    s = re.sub(r"\\(vspace)\*\{.*?\}\n?", r"", s)
+    # commands with 1 parameters
+    # s = re.sub(r"\\(vspace)\{.*?\}\n?", r"", s)
+
     # commands with 2 parameters
     s = re.sub(r"\\(setlength|settowidth)\{.*?\}\{.*?\}\n?", r"", s)
     # commands to remove the optional parameters from
@@ -345,6 +376,10 @@ def tex2html(s: str) -> str:
     #
 
     # \chapters
+    # s = s.replace("\chapter*", "\chapter")
+    s = re.sub(r"\\chapter\*\{(.*?)\}", r"<h2>\1</h2>", s)
+
+    s = s.replace("\section*", "\section")
     myMatches = re.finditer(r"(\\chapter\{([^\}]+)\})", s)
     for myMatch in myMatches:
         was = myMatch.group(1)
@@ -392,6 +427,14 @@ def tex2html(s: str) -> str:
     s = re.sub(
         r"\\(url)\{([^\}\\]+?)\}",
         r'<a href="\2">\2</a>',
+        s,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    # \href
+    # \href{https://www.youtube.com/watch?v=UHZQEtG8xYo}{UHZQEtG8xYo on YouTube}
+    s = re.sub(
+        r"\\(href)\{([^\}]+?)\}\{([^\}]+?)\}",
+        r'<a href="\1">\2</a>',
         s,
         flags=re.DOTALL | re.IGNORECASE,
     )
@@ -505,6 +548,22 @@ def tex2html(s: str) -> str:
     s = re.sub(
         r"\\begin\{playdialog\}(.+?)\\end\{playdialog\}",
         r'<div class="playdialog">\1</div>\n',
+        s,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+
+    # \begin{chapterOpeningAuthorNote}
+    s = re.sub(
+        r"\\begin\{chapterOpeningAuthorNote\}\s*(.+?)\s*\\end\{chapterOpeningAuthorNote\}",
+        r'<div class="chapterOpeningAuthorNote">E. Y.: “\1”</div><hr/>\n',
+        s,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+
+    # \begin{chapterOpeningQuote}
+    s = re.sub(
+        r"\\begin\{chapterOpeningQuote\}\s*(.+?)\s*\\end\{chapterOpeningQuote\}",
+        r'<div class="chapterOpeningQuote">“\1”</div><hr/>\n',
         s,
         flags=re.DOTALL | re.IGNORECASE,
     )
