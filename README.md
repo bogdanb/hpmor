@@ -21,8 +21,8 @@ of the chapters.
 ## Files
 
 * `hpmor.tex` - the main file
-* `hp-format.tex` - mostly sets up memoir
-* `hp-markup.tex` - logical markup commands used in the text
+* `layout/hp-format.tex` - mostly sets up memoir
+* `layout/hp-markup.tex` - logical markup commands used in the text
 * `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
 * `spelling-list.txt` - a list of words used to spell-check the book.
@@ -43,7 +43,7 @@ of the chapters.
 * `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
 * `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
-* `latexmk hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
+* `latexmk layout/hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
   `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding
   volume, `hpmor-N.pdf`, to have been built first.
 * `latexmk -c`: Remove files produced by building (except PDFs).
@@ -51,14 +51,15 @@ of the chapters.
 
 By default, the dust jackets assume 80gsm plain paper (this affects the
 thickness of the book and hence the size of the dust jacket). This can be
-configured in `hp-paper-type.tex`; see `papers.tex` for a list of papers.
+configured in `layout/hp-paper-type.tex`; see `layout/papers.tex` for a
+list of papers.
 
 The exact sizes of dust jackets may vary; the current parameters were taken
 from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as
 desired.
 
 Note that the back dust-flap is left for you to add your own text; edit
-`hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
+`layout/hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”.
 Make sure you remove the percent sign `%` at the start of the line, or your
 text will not be printed. (This is a safety feature to make sure that if you
 don’t change the text, the placeholder will not appear; instead, you’ll just
@@ -174,9 +175,9 @@ the chapters they appear in for the appropriate markup.
 
 ### Markup
 
-These are macros defined in `hp-markup.tex`. You should glance through that
-file to see what commands are available, and use them instead of direct
-markup; for example `\shout` rather than `\textsc`.
+These are macros defined in `layout/hp-markup.tex`. You should glance
+through that file to see what commands are available, and use them instead 
+of direct markup; for example `\shout` rather than `\textsc`.
 
 
 ## Translations
