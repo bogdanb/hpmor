@@ -195,8 +195,7 @@ Note: there are other translations of HPMOR; here are listed only
 translations of this edition.
 
 * [French](https://github.com/yeKcim/hpmor) (complete)
-* [German](https://github.com/entorb/hpmor-de) (in progress, volumes 1-2
-(chapters 1–38) finished)
+* [German](https://github.com/entorb/hpmor-de) (complete)
 
 
 <!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk GNUMakefile 80gsm '
