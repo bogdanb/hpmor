@@ -52,7 +52,7 @@ jobs:
         python3 --version  
 
     - name: make PDFs
-      run: sh make_pdfs.sh
+      run: sh make_pdfs.sh > /dev/null
 
     - name: make eBooks
       run: sh make_ebooks.sh
