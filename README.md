@@ -80,7 +80,7 @@ To build a single chapter, from the `chapters` directory use the command:
 Similarly, to build a single appendix or other non-chapter section, from the
 top directory use the command:
 
-`latexmk -norc -e '$chapterfile=FILENAME' -r latexmkrc -g FILENAME`
+`latexmk -norc -e '$chapterfile="FILENAME"' -r latexmkrc -g FILENAME`
 
 
 ## Contributing

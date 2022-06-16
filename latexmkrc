@@ -40,7 +40,7 @@ if (defined($chapter) || defined($chapterfile)) {
   } else {
     $chapter = 1;
   }
-  $pdflatex = "xelatex -jobname=$chapterfile %O \"\\RequirePackage[pdf]{hp-book}\\begin{document}\\setcounter{chapter}{" . ($chapter - 1) . "}\\input{$chapterfile}\\end{document}\"" if $chapter;
+  $pdflatex = "xelatex -jobname=$chapterfile %O \"\\RequirePackage[pdf]{layout/hp-book}\\begin{document}\\setcounter{chapter}{" . ($chapter - 1) . "}\\input{$chapterfile}\\end{document}\"";
 }
 $pdf_mode = 1;
 $postscript_mode = $dvi_mode = 0;
