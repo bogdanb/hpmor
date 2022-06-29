@@ -360,7 +360,9 @@ def tex2html(s: str) -> str:
 
     s = s.replace("\\emdashhyp", "—")
     s = s.replace("\\censor{Hermione}", "xxx")
-    s = s.replace("\\times", "&times;")
+    s = s.replace("$\\times$", "&times;")
+    # s = s.replace("\\times", "&times;")
+    s = s.replace("\@.", ".")
     s = s.replace("$\mbox{P}=\mbox{NP}$", "<i>P</i>=<i>NP</i>")
     s = s.replace("\mbox{“Salazar’s—”}", "“Salazar’s—”")
     s = s.replace("170–{140}", "170–140")
@@ -370,6 +372,9 @@ def tex2html(s: str) -> str:
 
     # spaces at start of line
     s = re.sub("\n +", "\n", s)
+    # remove $ if not \$
+    # FIXME: this is not working properly for " $.01$ "
+    # s = re.sub("(?<!\\\\)$", "", s)
 
     #
     # START OF REPLACEMENTS
