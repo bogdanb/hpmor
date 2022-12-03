@@ -21,27 +21,27 @@ jobs:
       run: date +%Y-%m-%d_%H:%M
 
     - name: checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         ref: master
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+        fetch-depth: 1 # 0 if you want to push to repo
 
     - name: python setup
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     - name: test ls before
       run: |
         pwd
-        ls -l
+        ls -al
 
 #    - name: quality check of chapters for known issues
 #      run: python3 check-chapters.py
 
     - name: install requirements
-      run: sh scripts/install_requirements.sh
+      run: sh scripts/install_requirements.sh > /dev/null
 
     - name: print versions
       run: |
@@ -60,7 +60,7 @@ jobs:
     - name: test ls after
       run: |
         pwd
-        ls -l
+        ls -al
 
 # publish to release       
     - name: upload to release
