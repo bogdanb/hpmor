@@ -32,3 +32,8 @@ ebook-convert output/hpmor.html output/hpmor.epub --no-default-epub-cover --cove
 
 echo 2.2 calibre: epub to mobi
 ebook-convert output/hpmor.epub output/hpmor.mobi
+
+echo 2.3 pandoc: epub to fp2
+target_file="hpmor.fp2"
+# ebook-convert does not support fp2
+pandoc --standalone output/hpmor.epub output/hpmor.fp2

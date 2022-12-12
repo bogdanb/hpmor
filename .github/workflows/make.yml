@@ -74,6 +74,7 @@ jobs:
           ./hpmor*.pdf
           ebook/output/hpmor.epub
           ebook/output/hpmor.mobi
+          ebook/output/hpmor.fp2
 
     - name: print end date
       run: date +%Y-%m-%d_%H:%M
