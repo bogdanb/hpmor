@@ -1,35 +1,34 @@
+# This workflow builds PDF and ebook upon new Commits
+
 name: Build HPMOR PDFs and eBooks
 
-# controls when the action will run.
-# workflow_dispatch: manual triggering
-# push: triggers the workflow on push request events but only for the main branch
 on:
-  workflow_dispatch:
+  workflow_dispatch: # manual triggering
   push:
     branches: [ main ]
 
-# a workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job1:
     runs-on: ubuntu-22.04
     # runs-on: ubuntu-latest
     steps:
 
-# initialize
     - name: print start date
       run: date +%Y-%m-%d_%H:%M
 
     - name: checkout repository
       uses: actions/checkout@v3
-      with:
-        ref: main
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        fetch-depth: 1 # 0 if you want to push to repo
 
     - name: python setup
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
+
+    - name: Set up Python cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-py-cache
 
     - name: test ls before
       run: |
@@ -40,6 +39,7 @@ jobs:
       run: python3 scripts/check-chapters.py
 
     - name: run pre-commit tests
+      # configured in .pre-commit-config.yaml and setup.cfg
       uses: pre-commit/action@v3.0.0
 
     - name: install requirements
@@ -64,7 +64,6 @@ jobs:
         pwd
         ls -al
 
-# publish to release
     - name: upload to release
       uses: softprops/action-gh-release@v1
       with:
