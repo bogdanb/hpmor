@@ -1,7 +1,7 @@
-# This workflow performs chapter quality (known issues) and code quality checks upon new Commits and PRs
-# configured in .pre-commit-config.yaml and setup.cfg
+# This workflow performs chapter quality (known issues) and code quality checks upon new commits and PRs.
+# Configured in .pre-commit-config.yaml and setup.cfg
 
-name: Check new Commits and PRs
+name: Check new commits and PRs
 
 on:
   workflow_dispatch:

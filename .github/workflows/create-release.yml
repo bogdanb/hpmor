@@ -1,21 +1,31 @@
-# This workflow builds PDFs and eBooks upon push of new commits.
-# Generated assets are uploaded to release WorkInProgress.
+# This manually started workflow builds PDFs and eBooks and creates a new release with these assets.
+# Build part is copied from make.yml .
 
-name: Build HPMOR PDFs and eBooks
+name: "Create Release"
 
 on:
-  workflow_dispatch: # manual triggering
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Version number'
+        required: true
+        default: 'v1.2.1'
+      version_text:
+        description: 'Description'
+        required: false
+        default: ''
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-22.04
-    # runs-on: ubuntu-latest
-    steps:
 
-    - name: print start date
-      run: date +%Y-%m-%d_%H:%M
+    steps:
+    # - name: test print
+    #   run: |
+    #     echo "version_number: ${{ github.event.inputs.version_number }}"
+    #     echo "version_number: ${{ github.event.inputs.version_text }}"
+
+    # steps are copied from make.yml
 
     - name: checkout repository
       uses: actions/checkout@v3
@@ -31,11 +41,6 @@ jobs:
         path: ${{ env.pythonLocation }}
         key: ${{ env.pythonLocation }}-py-cache
 
-    # - name: test ls before
-    #   run: |
-    #     pwd
-    #     ls -al
-
     - name: quality check of chapters for known issues
       run: python3 scripts/check-chapters.py
 
@@ -46,35 +51,19 @@ jobs:
     - name: install requirements
       run: sh scripts/install_requirements.sh > /dev/null
 
-    - name: print versions
-      run: |
-        cat /etc/os-release
-        xelatex -v
-        latexmk -v
-        pandoc -v
-        python3 --version
-
     - name: make PDFs
       run: sh scripts/make_pdfs.sh > /dev/null
 
     - name: make eBooks
       run: sh scripts/make_ebooks.sh
 
-    - name: test ls after
-      run: |
-        pwd
-        ls -al
-
-    - name: upload files to release WorkInProgress
+    - name: "create release"
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: WorkInProgress
-        prerelease: true
+        tag_name: "${{ inputs.version_number }}"
+        prerelease: false
         files: |
           ./hpmor*.pdf
           ./hpmor.epub
           ./hpmor.mobi
           ./hpmor.fb2
-
-    - name: print end date
-      run: date +%Y-%m-%d_%H:%M
