@@ -1,6 +1,6 @@
 # Harry Potter and the Methods Of Rationality
 
-https://github.com/rrthomas/hpmor
+<https://github.com/rrthomas/hpmor>
 Maintainer: Reuben Thomas <rrt@sc3d.org>
 
 A LaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com)
@@ -36,7 +36,6 @@ of the chapters.
   does the same as `latexmk` (see below), which may be useful for editor
   integration (e.g. Emacs).
 * `scripts/ebook/` - e-book generation scripts
-
 
 ## Building the book(s)
 
@@ -85,7 +84,6 @@ top directory use the command:
 
 `latexmk -norc -e '$chapterfile="FILENAME"' -r latexmkrc -g FILENAME`
 
-
 ## Contributing
 
 Contributions are most welcome. These fall into the following categories:
@@ -100,7 +98,7 @@ Contributions are most welcome. These fall into the following categories:
    also, search the sources for “FIXME”.
 4. Translations. Translations are of course most welcome! A list of known
    translations and one or two hints are given below in the
-   [next section](#Translations).
+   [next section](#translations).
 
 For textual changes other than simple typo or language fixes, please
 familiarise yourself with the style guide (below).
@@ -110,7 +108,6 @@ Textual corrections can also be submitted as issues in the issue tracker, or
 by email to the maintainer.
 
 For the GitHub URL, and email address of the maintainer, see above.
-
 
 ## Style guide
 
@@ -128,7 +125,6 @@ one-off references to various real and fictional people.)
 
 Emacs users benefit from a `.dir-locals.el` that automatically sets up
 `spelling-list.txt` as the personal dictionary for all HPMOR files.
-
 
 ### Chapter headings
 
@@ -148,7 +144,6 @@ which part it is.
 The second looks like the title of the chapter, then the abbreviation for
 the title of the chapter, then the part, then the title of the part.
 
-
 ### First sentences
 
 Normally, a chapter starts like this:
@@ -164,24 +159,20 @@ this:
     [...]
     blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
 
-
 ### Sections
 
 `\section{Final Aftermath:}`
-
 
 ### Miscellaneous
 
 There are some other things relating to newspaper headlines and such; check
 the chapters they appear in for the appropriate markup.
 
-
 ### Markup
 
 These are macros defined in `layout/hp-markup.tex`. You should glance
 through that file to see what commands are available, and use them instead
 of direct markup; for example `\shout` rather than `\textsc`.
-
 
 ## Translations
 
@@ -191,7 +182,6 @@ this file to add the translation!
 
 It is recommended to use `polyglossia` (not `babel`).
 
-
 ### Known translations
 
 Note: there are other translations of HPMOR; here are listed only
@@ -199,7 +189,6 @@ translations of this edition.
 
 * [French](https://github.com/yeKcim/hpmor) (complete)
 * [German](https://github.com/entorb/hpmor-de) (complete)
-
 
 <!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk GNUMakefile 80gsm '
  -->
